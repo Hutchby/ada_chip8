@@ -1,0 +1,13 @@
+arch/ARM/STM32/lib/
+arch/ARM/STM32/obj/
+arch/ARM/cortex_m/lib/
+arch/ARM/cortex_m/obj/
+boards/stm32f429_discovery/lib/
+boards/stm32f429_discovery/obj/
+components/lib/
+components/obj/
+hal/lib/
+hal/obj/
+middleware/lib/
+middleware/obj/
+obj/
