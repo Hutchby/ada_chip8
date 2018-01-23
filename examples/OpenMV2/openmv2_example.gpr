@@ -1,0 +1,23 @@
+with "../../boards/OpenMV2/openmv2";
+with "../../boards/config";
+
+project OpenMV2_Example is
+
+   --  OpenMV2 runtime is derived from smt32f429-disco with
+   --
+   --  HSE_Clock_Frequency : constant := 12_000_000;
+   --
+   --  in bsp/s-bbopa.ads
+   for Runtime ("Ada") use OpenMV2'Runtime ("Ada");
+
+   for Target use "arm-eabi";
+   for Source_Dirs use ("src");
+
+   for Languages use ("Ada");
+   for Object_Dir use "obj";
+   for Main use ("main.adb");
+   for Create_Missing_Dirs use "True";
+
+   package Compiler renames Config.Compiler;
+
+ end OpenMV2_Example;
