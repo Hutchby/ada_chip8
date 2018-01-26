@@ -1,0 +1,289 @@
+V "GNAT Lib v2017"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2017\arm-eabi\lib\gnat\ravenscar-sfp-stm32f429disco\
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -g
+A -gnata
+A -fcallgraph-info=su
+A -gnatwa
+A -gnatwe
+A -gnatQ
+A -gnatw.X
+A -gnaty
+A -gnatyO
+A -gnatyM120
+A -ffunction-sections
+A -fdata-sections
+P DB LC TF  ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U touch_panel_stmpe811%b  touch_panel_stmpe811.adb  d996fbed OO PK
+W ada.exceptions%s	a-except.adb		a-except.ali
+W hal%s			hal.ads			hal.ali
+W hal.i2c%s		hal-i2c.ads		hal-i2c.ali
+W hal.touch_panel%s	hal-touch_panel.ads	hal-touch_panel.ali
+W interfaces%s		interfac.ads		interfac.ali
+W stm32%s		stm32.ads		stm32.ali
+W stm32.board%s		stm32-board.adb		stm32-board.ali
+W stm32.device%s	stm32-device.adb	stm32-device.ali
+W stm32.gpio%s		stm32-gpio.adb		stm32-gpio.ali
+W stm32.i2c%s		stm32-i2c.adb		stm32-i2c.ali
+W stm32.setup%s		stm32-setup.adb		stm32-setup.ali
+W stmpe811%s		stmpe811.adb		stmpe811.ali
+
+U touch_panel_stmpe811%s  touch_panel_stmpe811.ads  37c63bf3 EE OO PK
+W ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+W hal.framebuffer%s	hal-framebuffer.ads	hal-framebuffer.ali
+W hal.touch_panel%s	hal-touch_panel.ads	hal-touch_panel.ali
+W ravenscar_time%s	ravenscar_time.adb	ravenscar_time.ali  AD
+W stm32%s		stm32.ads		stm32.ali
+W stm32.device%s	stm32-device.adb	stm32-device.ali
+W stm32.i2c%s		stm32-i2c.adb		stm32-i2c.ali
+W stmpe811%s		stmpe811.adb		stmpe811.ali
+W system%s		system.ads		system.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+D ada.ads		20170517220732 76789da1 ada%s
+D a-except.ads		20170517220732 5b5f0f2f ada.exceptions%s
+D a-except.adb		20170517220732 0537fae3 ada.exceptions%b
+D a-interr.ads		20170517220734 bdf68b51 ada.interrupts%s
+D a-intnam.ads		20170517220734 d93e10ac ada.interrupts.names%s
+D a-reatim.ads		20170517220734 bb781ad1 ada.real_time%s
+D a-tags.ads		20170517220732 cc425f51 ada.tags%s
+D a-taside.ads		20170517220734 c6417f71 ada.task_identification%s
+D a-unccon.ads		20170517220732 31484697 ada.unchecked_conversion%s
+D framebuffer_ili9341.ads  20180126143412 71d6dd2d framebuffer_ili9341%s
+D framebuffer_ltdc.ads	20180126143412 78cac1e3 framebuffer_ltdc%s
+D hal.ads		20180126143414 2b42c80e hal%s
+D hal-audio.ads		20180126143414 6baea1e9 hal.audio%s
+D hal-bitmap.ads	20180126143414 03ebc14f hal.bitmap%s
+D hal-block_drivers.ads	20180126143414 3a6f071f hal.block_drivers%s
+D hal-framebuffer.ads	20180126143414 9811b908 hal.framebuffer%s
+D hal-gpio.ads		20180126143414 146364b8 hal.gpio%s
+D hal-i2c.ads		20180126143414 0ed73138 hal.i2c%s
+D hal-real_time_clock.ads  20180126143414 9dd52fca hal.real_time_clock%s
+D hal-sdmmc.ads		20180126143414 7293c891 hal.sdmmc%s
+D hal-spi.ads		20180126143414 fe139819 hal.spi%s
+D hal-time.ads		20180126143414 f5295cd7 hal.time%s
+D hal-touch_panel.ads	20180126143414 cd526671 hal.touch_panel%s
+D hal-uart.ads		20180126143414 d58316b4 hal.uart%s
+D ili9341.ads		20180126143412 936ed160 ili9341%s
+D interfac.ads		20170517220732 5ab55268 interfaces%s
+D i-stm32.ads		20170517220734 2ad0960b interfaces.stm32%s
+D i-stm32-pwr.ads	20170517220734 4a098e84 interfaces.stm32.pwr%s
+D i-stm32-rcc.ads	20170517220734 dc5180a7 interfaces.stm32.rcc%s
+D l3gd20.ads		20180126143412 ca110b0d l3gd20%s
+D memory_mapped_bitmap.ads  20180126143414 b7ed57c8 memory_mapped_bitmap%s
+D ravenscar_time.ads	20180126143414 7a23edc6 ravenscar_time%s
+D sdmmc_svd_periph.ads	20180126143410 b49674fe sdmmc_svd_periph%s
+D soft_drawing_bitmap.ads  20180126143414 41d47adc soft_drawing_bitmap%s
+D stm32.ads		20180126143410 698e2c3b stm32%s
+D stm32-adc.ads		20180126143410 a0a7f671 stm32.adc%s
+D stm32-board.ads	20180126143412 1e4455ae stm32.board%s
+D stm32-crc.ads		20180126143410 9ef7b3c1 stm32.crc%s
+D stm32-dac.ads		20180126143410 bbc963b4 stm32.dac%s
+D stm32-device.ads	20180126143410 82d0cb49 stm32.device%s
+D stm32-dma.ads		20180126143410 a485c5f7 stm32.dma%s
+D stm32-dma-interrupts.ads  20180126143410 35afaa6f stm32.dma.interrupts%s
+D stm32-dma2d.ads	20180126143410 cec1550a stm32.dma2d%s
+D stm32-dma2d_bitmap.ads  20180126143412 e71d75df stm32.dma2d_bitmap%s
+D stm32-exti.ads	20180126143410 27a7d05f stm32.exti%s
+D stm32-fmc.ads		20180126143410 cbc3a468 stm32.fmc%s
+D stm32-gpio.ads	20180126143410 05c0ee89 stm32.gpio%s
+D stm32-i2c.ads		20180126143410 2a3b9b70 stm32.i2c%s
+D stm32-i2c-dma.ads	20180126143410 75d445d8 stm32.i2c.dma%s
+D stm32-i2s.ads		20180126143410 8099fbc7 stm32.i2s%s
+D stm32-ltdc.ads	20180126143410 679ad904 stm32.ltdc%s
+D stm32-rtc.ads		20180126143410 ff58a3e8 stm32.rtc%s
+D stm32-sdmmc.ads	20180126143410 4cae3006 stm32.sdmmc%s
+D stm32-sdmmc_interrupt.ads  20180126143410 6fda8a6a stm32.sdmmc_interrupt%s
+D stm32-setup.ads	20180126143410 12493686 stm32.setup%s
+D stm32-spi.ads		20180126143410 98127252 stm32.spi%s
+D stm32-spi-dma.ads	20180126143410 030a0921 stm32.spi.dma%s
+D stm32-timers.ads	20180126143410 63c500b2 stm32.timers%s
+D stm32-usarts.ads	20180126143410 c32302c7 stm32.usarts%s
+D stm32_svd.ads		20180126143412 89b9f11a stm32_svd%s
+D stm32_svd-adc.ads	20180126143412 0c4598f6 stm32_svd.adc%s
+D stm32_svd-crc.ads	20180126143412 f8fb8ec8 stm32_svd.crc%s
+D stm32_svd-dac.ads	20180126143412 7ce3d16d stm32_svd.dac%s
+D stm32_svd-dma.ads	20180126143412 cbdaf790 stm32_svd.dma%s
+D stm32_svd-gpio.ads	20180126143412 05f2a6bd stm32_svd.gpio%s
+D stm32_svd-i2c.ads	20180126143412 b6aa1d20 stm32_svd.i2c%s
+D stm32_svd-sdio.ads	20180126143412 586e3cc2 stm32_svd.sdio%s
+D stm32_svd-spi.ads	20180126143412 694b2c33 stm32_svd.spi%s
+D stm32_svd-usart.ads	20180126143412 d9126171 stm32_svd.usart%s
+D stmpe811.ads		20180126143412 1eb180eb stmpe811%s
+D system.ads		20170517220734 66e59cc5 system%s
+D s-assert.ads		20170517220732 cd8d2c94 system.assertions%s
+D s-bb.ads		20170517220732 09e072ae system.bb%s
+D s-bbbopa.ads		20170517220734 5e9af419 system.bb.board_parameters%s
+D s-bbbosu.ads		20170517220734 9b59a61f system.bb.board_support%s
+D s-bbcppr.ads		20170517220734 bcfa73ad system.bb.cpu_primitives%s
+D s-bcprmu.ads		20170517220734 043d3736 system.bb.cpu_primitives.multiprocessors%s
+D s-bbinte.ads		20170517220734 d9fc23b0 system.bb.interrupts%s
+D s-bbmcpa.ads		20170517220734 b5961a30 system.bb.mcu_parameters%s
+D s-bbpara.ads		20170517220734 77379e7b system.bb.parameters%s
+D s-bbthre.ads		20170517220734 d6c36e4f system.bb.threads%s
+D s-bbthqu.ads		20170517220734 db3cad46 system.bb.threads.queues%s
+D s-bbtime.ads		20170517220734 ad086247 system.bb.time%s
+D s-interr.ads		20170517220734 36300b98 system.interrupts%s
+D s-multip.ads		20170517220734 f33e0e35 system.multiprocessors%s
+D s-mufalo.ads		20170517220734 3dca0374 system.multiprocessors.fair_locks%s
+D s-musplo.ads		20170517220734 69fa25c4 system.multiprocessors.spin_locks%s
+D s-osinte.ads		20170517220734 2d4f0621 system.os_interface%s
+D s-parame.ads		20170517220734 c9fe535f system.parameters%s
+D s-stm32.ads		20170517220734 e898dba2 system.stm32%s
+D s-stoele.ads		20170517220732 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20170517220732 ed88f8fb system.storage_elements%b
+D s-tasinf.ads		20170517220734 801abd01 system.task_info%s
+D s-taspri.ads		20170517220734 351848fa system.task_primitives%s
+D s-taskin.ads		20170517220734 2a4da085 system.tasking%s
+D s-taprob.ads		20170517220734 c8fc0753 system.tasking.protected_objects%s
+D s-tposen.ads		20170517220734 9e6a8286 system.tasking.protected_objects.single_entry%s
+D s-unstyp.ads		20170517220732 34867c83 system.unsigned_types%s
+D touch_panel_stmpe811.ads  20180126143412 aefcd99e touch_panel_stmpe811%s
+D touch_panel_stmpe811.adb  20180126143412 0b782849 touch_panel_stmpe811%b
+X 12 hal.ads
+34K9*HAL 166e8 99|32r6 33r6 42r36 47r21 48r9 52r21 53r9 57r21 100|51r6 51r32
+. 52r6 58r13 70r21 71r9 95r21 96r28 109r21 113r15 113r41 117r15
+41M9*UInt3
+43M9*UInt4
+53M9*UInt8<26|63M9>
+66M9*UInt16<26|66M9>
+97M9*UInt32<26|74M9>
+162A9*UInt8_Array(53M9)<integer>
+X 13 hal-audio.ads
+61h9*Audio_Stream
+X 14 hal-bitmap.ads
+98h9*Bitmap_Buffer
+X 15 hal-block_drivers.ads
+34h9*Block_Driver
+X 16 hal-framebuffer.ads
+34K13*Framebuffer 127e20 99|33w10 47r25 48r13 52r25 53r13 57r25 100|70r25
+. 71r13 95r25 96r32 109r25 113r19 113r45 117r19
+39E9*Display_Orientation 40e36 99|47r37 52r37 57r37 100|70r37 95r37 109r37
+40n7*Default{39E9} 99|48r25 53r25 100|71r25 96r44 113r31
+40n16*Landscape{39E9} 100|117r31
+40n27*Portrait{39E9} 100|113r57
+44h9*Frame_Buffer_Display
+X 17 hal-gpio.ads
+44h9*GPIO_Point
+X 18 hal-i2c.ads
+32K13*I2C 84e12 100|52w10 58r17
+34E9*I2C_Status 38e12 100|58r21
+40A12*I2C_Data{12|162A9}<integer>
+48h9*I2C_Port
+X 19 hal-real_time_clock.ads
+79h9*RTC_Device
+X 20 hal-sdmmc.ads
+380h9*SDMMC_Driver
+X 21 hal-spi.ads
+48h9*SPI_Port
+X 22 hal-time.ads
+34h9*Delays
+36P9*Any_Delays(34R9)
+X 23 hal-touch_panel.ads
+32K13*Touch_Panel 84e20 99|32w10 42r40 100|51w10 51r36
+42M9*Swap_State<12|41M9>
+45m4*Invert_Y{42M9} 100|120r41
+46m4*Swap_XY{42M9} 100|120r30
+48I12*Touch_Identifier{natural}
+50A9*TP_State(34R9)<integer>
+52h9*Touch_Panel_Device 99|42r52
+X 24 hal-uart.ads
+48h9*UART_Port
+X 26 interfac.ads
+63M9*Unsigned_8
+66M9*Unsigned_16
+74M9*Unsigned_32
+X 32 ravenscar_time.ads
+34K9*Ravenscar_Time 53e19 99|34w6 66r19
+36V13*Delays{22|36P9} 99|66s34
+X 35 stm32.ads
+39K9*STM32 48e10 99|37r14 38r14 61r15 61r42 100|44r6 44r32 45r6 45r32 46r6
+. 46r32 47r6 49r6 49r32 76r10 114r30 115r30 118r30 119r30
+42M9*GPIO_Alternate_Function<12|43M9> 100|62r26
+X 37 stm32-board.ads
+58K15*Board 217e16 100|44w12 114r36 115r36 118r36 119r36
+177N4*LCD_Natural_Width 100|114r42 118r42
+178N4*LCD_Natural_Height 100|115r42 119r42
+X 40 stm32-device.ads
+65K15*Device 634e17 99|37w20 61r48 100|49w12 49r38
+106r4*PA8{47|138R9} 100|60r36
+139r4*PC9{47|138R9} 100|61r36
+291m4*GPIO_AF_I2C3_4{35|42M9} 100|62r53
+427r4*I2C_3{48|89R9} 99|61m55 61r55
+X 47 stm32-gpio.ads
+49K15*GPIO 288e15 100|46w12 46r38
+138R9*GPIO_Point<17|44R9> 143e14 100|60r17 61r17
+X 48 stm32-i2c.ads
+49K15*I2C 267e14 99|38w20 61r21 100|45w12 45r38
+89R9*I2C_Port<18|48R9> 175e17 99|61r25
+100V13*Port_Enabled{boolean} 100|75s21
+X 55 stm32-setup.ads
+44K15*Setup 53e16 100|47w12 76r16
+46U14*Setup_I2C_Master 100|76s22
+46c32 Port<48|89R9> 100|76r40
+47r32 SDA{47|138R9} 100|77r40
+47r37 SCL{47|138R9} 100|78r40
+48m32 SDA_AF{35|42M9} 100|79r40
+48m40 SCL_AF{35|42M9} 100|80r40
+49m32 Clock_Speed{12|97M9} 100|81r40
+X 70 stmpe811.ads
+37K9*STMPE811 102e13 99|36w14 63r36 100|54w6 54r32
+39R9*STMPE811_Device<23|52R9> 81e14 99|63r45 100|84r17
+44V13*Initialize{boolean} 100|84s40
+48U14*Set_Bounds<23|56p14> 100|114s18 118s18
+54V13*Active_Touch_Points{23|48I12}<23|62p13>
+59V13*Get_Touch_Point{23|34R9}<23|66p13>
+66V13*Get_All_Touch_Points{23|50A9}<23|72p13>
+83A12 TSC_Data{18|40A12}<integer>
+85V13 Read_Data{83A12}
+88V13 Read_Register{12|53M9}
+90U14 Write_Register
+93U14 IOE_Reset
+94U14 IOE_Function_Command
+97U14 IOE_AF_Config
+100V13 Get_IOE_ID{12|66M9}
+X 71 system.ads
+95M9*Address
+X 77 s-bcprmu.ads
+39U14*Start_All_CPUs 40i<c,__gnat_start_slave_cpus>22
+X 84 s-interr.ads
+101U14*Install_Restricted_Handlers_Sequential 102i<c,__gnat_attach_all_handlers>22
+X 95 s-taskin.ads
+361V13*Get_Sec_Stack{71|95M9} 362i<c,__gnat_get_secondary_stack>22
+X 99 touch_panel_stmpe811.ads
+40K9*Touch_Panel_STMPE811 61E4 68l5 68e25 100|56b14 124l5 124t25
+42R9*Touch_Panel<23|52R9> 70|44p13 48P14 54P13 59P13 66P13 85p13 88p13 90p14
+. 93p14 94p14 97p14 100p13 99|45p13 46r21 50p14 51r21 55p14 56r28 63c9 100|69r21
+. 94r40 108r28
+45V13*Initialize{boolean} 46=7 47>7 100|68b13 88l8 88t18 98s19
+46r7 This{42R9} 100|69b7 84m34 84r34 85m7 85r7
+47e7 Orientation{16|39E9} 100|70b7 85r29
+50U14*Initialize 51=7 52>7 100|94b14 101l8 101t18
+51r7 This{42R9} 100|94b26 98m14 98r14
+52e7 Orientation{16|39E9} 100|95b7 98r31
+55U14*Set_Orientation 56=7 57>7 100|85s12 107b14 122l8 122t23
+56r7 This{42R9} 100|108b7 114m13 114r13 118m13 118r13
+57e7 Orientation{16|39E9} 100|109b7 112r12
+61r4 TP_I2C=61:55{48|89R9} 64r19 100|75r14 76r55
+X 100 touch_panel_stmpe811.adb
+60r4 SCL=60:36{47|138R9} 78r55
+61r4 SDA=61:36{47|138R9} 77r55
+62m4 SCL_SDA_AF{35|42M9} 79r55 80r55
+73b7 Status{boolean} 84m7 87r14
+
