@@ -1,13 +1,15 @@
 package Chip8 is
-   subtype Short is mod 2**16 - 1;
-   subtype Address is mod 2**12 - 1;
-   subtype Char is mod 2**8 - 1;
+   type Short is mod 2**16;
+   type Address is mod 2**12;
+   type Char is mod 2**8;
    type InstructionBytes is array (0 .. 1) of Char;
+   type Instruction is mod 2**16;
    type Memory is array (Address'Range) of Char;
    type RegisterArray is array (0 .. 15) of Char;
    type ReturnStack is array (0 .. 15) of Address;
    type KeyMap is array (0 .. 15) of Char;
    type FrameBuffer is array (0 .. 63, 0 .. 31) of Boolean;
+   InstructionLength : constant := 2;
    --  Chip8 memory map:
    --  0x000-0x1FF - Chip8 interpreter, we will use it to store font set
    --  0x050-0x0A0 - Used to store the built-in 4x5 font set
@@ -23,7 +25,7 @@ package Chip8 is
          Delay_Timer : Char;
          Sound_Timer : Char;
          Stack : ReturnStack;
-         StackIdx : Short;
+         StackIdx : Integer range 0 .. 16;
          SP : Short;
          Key : KeyMap;
       end record;
@@ -32,7 +34,6 @@ package Chip8 is
    procedure Cls (cpu : in out Chip8; instr : in InstructionBytes);
    procedure Ret (cpu : in out Chip8; instr : in InstructionBytes);
    procedure Call (cpu : in out Chip8; instr : in InstructionBytes);
-   procedure Jmp (cpu : in out Chip8; instr : in InstructionBytes);
    procedure SeVB (cpu : in out Chip8; instr : in InstructionBytes);
    procedure SneVB (cpu : in out Chip8; instr : in InstructionBytes);
    procedure SeVV (cpu : in out Chip8; instr : in InstructionBytes);
@@ -67,5 +68,8 @@ package Chip8 is
 private
    procedure SetPc (cpu : in out Chip8; addr : in Address);
    procedure AddToPc (cpu : in out Chip8; offset : in Address);
+   function GetInstructionValue (bytes : in InstructionBytes)
+                                 return Instruction;
+   procedure ConditionalJump (cpu : in out Chip8; condition : in Boolean);
 
 end Chip8;
