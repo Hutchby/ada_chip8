@@ -1,7 +1,7 @@
 package Chip8 is
-   subtype Short is Natural range 0 .. 2**16 - 1;
-   subtype Address is Natural range 0 .. 2**12 - 1;
-   subtype Char is Natural range 0 .. 2**8 - 1;
+   subtype Short is mod 2**16 - 1;
+   subtype Address is mod 2**12 - 1;
+   subtype Char is mod 2**8 - 1;
    type InstructionBytes is array (0 .. 1) of Char;
    type Memory is array (Address'Range) of Char;
    type RegisterArray is array (0 .. 15) of Char;
@@ -14,7 +14,7 @@ package Chip8 is
    --  0x050-0x0A0 - Program and work memory storage
    type Chip8 is
       record
-         Opcode : Short := 0;
+         Opcode : Short;
          CMemory : Memory;
          V : RegisterArray;
          I : Short;
@@ -23,6 +23,7 @@ package Chip8 is
          Delay_Timer : Char;
          Sound_Timer : Char;
          Stack : ReturnStack;
+         StackIdx : Short;
          SP : Short;
          Key : KeyMap;
       end record;

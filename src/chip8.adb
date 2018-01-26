@@ -17,4 +17,19 @@ package body Chip8 is
       SetPc (cpu, (offset + cpu.PC) mod (Memory'Length));
    end AddToPc;
 
+   procedure Jp (cpu : in out Chip8; instr : in InstructionBytes)
+   is
+      dest : Address := 0;
+   begin
+      dest := instr (1);
+      dest := dest + (instr (0) and 15);
+      SetPc (cpu, dest);
+   end Jp;
+
+   procedure Ret (cpu : in out Chip8; instr : in InstructionBytes)
+   is
+   begin
+      cpu.StackIdx := cpu.StackIdx - 1;
+      SetPc(cpu.Stack (cpu.StackIdx));
+   end Ret;
 end Chip8;
