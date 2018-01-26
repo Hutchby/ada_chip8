@@ -1,0 +1,151 @@
+V "GNAT Lib v2017"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2017\arm-eabi\lib\gnat\ravenscar-sfp-stm32f429disco\
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -g
+A -gnata
+A -fcallgraph-info=su
+A -gnatwa
+A -gnatwe
+A -gnatQ
+A -gnatw.X
+A -gnaty
+A -gnatyO
+A -gnatyM120
+A -ffunction-sections
+A -fdata-sections
+P DB LC TF  ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_PROTECTED_TYPES
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_CONVERSION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+RV MAX_PROTECTED_ENTRIES=1
+RV MAX_ENTRY_QUEUE_LENGTH=1+
+
+U stm32.dma2d.interrupt%b  stm32-dma2d-interrupt.adb  624471ab OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.interrupts%s	a-interr.adb		a-interr.ali
+W ada.interrupts.names%s  a-intnam.ads		a-intnam.ali
+W stm32.dma2d%s		stm32-dma2d.adb		stm32-dma2d.ali
+W stm32_svd%s		stm32_svd.ads		stm32_svd.ali
+W stm32_svd.dma2d%s	stm32_svd-dma2d.ads	stm32_svd-dma2d.ali
+W system%s		system.ads		system.ali
+W system.assertions%s	s-assert.adb		s-assert.ali
+W system.interrupts%s	s-interr.adb		s-interr.ali
+W system.tasking.protected_objects%s  s-taprob.adb  s-taprob.ali
+W system.tasking.protected_objects.single_entry%s  s-tposen.adb  s-tposen.ali
+
+U stm32.dma2d.interrupt%s  stm32-dma2d-interrupt.ads  3547da5c EE NE OO PK IU
+W stm32.dma2d%s		stm32-dma2d.adb		stm32-dma2d.ali
+
+D ada.ads		20170517220732 76789da1 ada%s
+D a-interr.ads		20170517220734 bdf68b51 ada.interrupts%s
+D a-intnam.ads		20170517220734 d93e10ac ada.interrupts.names%s
+D a-taside.ads		20170517220734 c6417f71 ada.task_identification%s
+D a-unccon.ads		20170517220732 31484697 ada.unchecked_conversion%s
+D hal.ads		20180126143414 2b42c80e hal%s
+D interfac.ads		20170517220732 5ab55268 interfaces%s
+D i-stm32.ads		20170517220734 2ad0960b interfaces.stm32%s
+D i-stm32-pwr.ads	20170517220734 4a098e84 interfaces.stm32.pwr%s
+D i-stm32-rcc.ads	20170517220734 dc5180a7 interfaces.stm32.rcc%s
+D stm32.ads		20180126143410 698e2c3b stm32%s
+D stm32-dma2d.ads	20180126143410 cec1550a stm32.dma2d%s
+D stm32-dma2d-interrupt.ads  20180126143410 fb868f56 stm32.dma2d.interrupt%s
+D stm32-dma2d-interrupt.adb  20180126143410 68602546 stm32.dma2d.interrupt%b
+D stm32_svd.ads		20180126143412 89b9f11a stm32_svd%s
+D stm32_svd-dma2d.ads	20180126143412 289ccb17 stm32_svd.dma2d%s
+D system.ads		20170517220734 66e59cc5 system%s
+D s-assert.ads		20170517220732 cd8d2c94 system.assertions%s
+D s-bb.ads		20170517220732 09e072ae system.bb%s
+D s-bbbopa.ads		20170517220734 5e9af419 system.bb.board_parameters%s
+D s-bbbosu.ads		20170517220734 9b59a61f system.bb.board_support%s
+D s-bbcppr.ads		20170517220734 bcfa73ad system.bb.cpu_primitives%s
+D s-bcprmu.ads		20170517220734 043d3736 system.bb.cpu_primitives.multiprocessors%s
+D s-bbinte.ads		20170517220734 d9fc23b0 system.bb.interrupts%s
+D s-bbmcpa.ads		20170517220734 b5961a30 system.bb.mcu_parameters%s
+D s-bbpara.ads		20170517220734 77379e7b system.bb.parameters%s
+D s-bbthre.ads		20170517220734 d6c36e4f system.bb.threads%s
+D s-bbthqu.ads		20170517220734 db3cad46 system.bb.threads.queues%s
+D s-bbtime.ads		20170517220734 ad086247 system.bb.time%s
+D s-interr.ads		20170517220734 36300b98 system.interrupts%s
+D s-multip.ads		20170517220734 f33e0e35 system.multiprocessors%s
+D s-mufalo.ads		20170517220734 3dca0374 system.multiprocessors.fair_locks%s
+D s-musplo.ads		20170517220734 69fa25c4 system.multiprocessors.spin_locks%s
+D s-osinte.ads		20170517220734 2d4f0621 system.os_interface%s
+D s-parame.ads		20170517220734 c9fe535f system.parameters%s
+D s-stm32.ads		20170517220734 e898dba2 system.stm32%s
+D s-stoele.ads		20170517220732 2dc34a04 system.storage_elements%s
+D s-tasinf.ads		20170517220734 801abd01 system.task_info%s
+D s-taspri.ads		20170517220734 351848fa system.task_primitives%s
+D s-taskin.ads		20170517220734 2a4da085 system.tasking%s
+D s-taprob.ads		20170517220734 c8fc0753 system.tasking.protected_objects%s
+D s-tposen.ads		20170517220734 9e6a8286 system.tasking.protected_objects.single_entry%s
+D s-unstyp.ads		20170517220732 34867c83 system.unsigned_types%s
+X 1 ada.ads
+16K9*Ada 20e8 14|32r6 49r41
+X 2 a-interr.ads
+40K13*Interrupts 100e19 14|32r10 49r45
+42I9*Interrupt_ID<30|61I9>
+X 3 a-intnam.ads
+8K24*Names 291e25 14|32w21 49r56
+289i4*DMA2D_Interrupt{2|42I9} 14|49r62
+X 11 stm32.ads
+39K9*STM32 48e10 13|34r9 38r5 14|36r14 148r5
+X 12 stm32-dma2d.ads
+35K15*DMA2D 11|39k9 12|282e16 13|34r15 38r11 14|36r20 148r11
+161P9*DMA2D_Sync_Procedure
+163U14*DMA2D_Init 14|144s7
+164p7 Init{161P9} 14|144r19
+165p7 Wait{161P9} 14|145r19
+X 13 stm32-dma2d-interrupt.ads
+34K21*Interrupt 12|35k15 13|38l17 38e26 14|36b26 148l17 148t26
+36U14*Initialize 14|142b14 146l8 146t18
+X 14 stm32-dma2d-interrupt.adb
+38U14 DMA2D_Start 124b14 127l8 127t19 144r27
+39U14 DMA2D_Wait 133b14 136l8 136t18 145r27
+41w14 Sync 60b19 118l8 118t12 126r7 135r7
+44Y13 Wait 65b13 68l11 68t15 135s12
+46U17 Start_Transfer 74b17 88l11 88t25 126s12
+48U17 Interrupt 49r30 94b17 117l11 117t20
+52b7 Ready{boolean} 65r23 76r25 77r10 101r13 107r13
+53b7 Error{boolean} 78r10 100r13 106r13
+X 15 stm32_svd.ads
+10K9*STM32_SVD 14|34r6 34r32 15|184e14
+X 16 stm32_svd-dma2d.ads
+10K19*DMA2D 14|34w16 34r42 16|542e20
+22b7*START{boolean} 14|87m26
+30b7*TEIE{boolean} 14|85m26 116m26
+32b7*TCIE{boolean} 14|84m26 115m26
+40b7*CEIE{boolean} 14|83m26 114m26
+70b7*TEIF{boolean} 14|96r55
+72b7*TCIF{boolean} 14|103r33
+80b7*CEIF{boolean} 14|96r30
+100b7*CTEIF{boolean} 14|82m28 99m31
+102b7*CTCIF{boolean} 14|81m28 105m31
+110b7*CCEIF{boolean} 14|80m28 98m31
+467r7*CR{20R9} 14|83m23 84m23 85m23 87m23 114m23 115m23 116m23
+469r7*ISR{68R9} 14|96r26 96r51 103r29
+471r7*IFCR{98R9} 14|80m23 81m23 82m23 98m26 99m26 105m26
+539r4*DMA2D_Periph{465R9} 14|80m10 81m10 82m10 83m10 84m10 85m10 87m10 96r13
+. 96r38 98m13 99m13 103r16 105m13 114m10 115m10 116m10
+X 17 system.ads
+95M9*Address
+X 23 s-bcprmu.ads
+39U14*Start_All_CPUs 40i<c,__gnat_start_slave_cpus>22
+X 30 s-interr.ads
+61I9*Ada_Interrupt_ID<integer>
+101U14*Install_Restricted_Handlers_Sequential 102i<c,__gnat_attach_all_handlers>22
+X 40 s-taskin.ads
+361V13*Get_Sec_Stack{17|95M9} 362i<c,__gnat_get_secondary_stack>22
+

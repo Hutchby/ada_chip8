@@ -1,0 +1,163 @@
+V "GNAT Lib v2017"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2017\arm-eabi\lib\gnat\ravenscar-sfp-stm32f429disco\
+A -mlittle-endian
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -mthumb
+A -g
+A -gnata
+A -fcallgraph-info=su
+A -gnatwa
+A -gnatwe
+A -gnatQ
+A -gnatw.X
+A -gnaty
+A -gnatyO
+A -gnatyM120
+A -ffunction-sections
+A -fdata-sections
+P DB LC TF  ZX
+
+RN
+RV NO_PROTECTED_TYPES
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+RV MAX_PROTECTED_ENTRIES=1
+
+U stm32.dma.interrupts%b  stm32-dma-interrupts.adb  aef1a372 NE OO PK IU
+W stm32.dma%s		stm32-dma.adb		stm32-dma.ali
+W system%s		system.ads		system.ali
+W system.tasking.protected_objects%s  s-taprob.adb  s-taprob.ali
+W system.tasking.protected_objects.single_entry%s  s-tposen.adb  s-tposen.ali
+
+U stm32.dma.interrupts%s  stm32-dma-interrupts.ads  2cdce4c9 EE NE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.interrupts%s	a-interr.adb		a-interr.ali
+W stm32.dma%s		stm32-dma.adb		stm32-dma.ali
+W system%s		system.ads		system.ali
+W system.interrupts%s	s-interr.adb		s-interr.ali
+W system.tasking.protected_objects%s  s-taprob.adb  s-taprob.ali
+W system.tasking.protected_objects.single_entry%s  s-tposen.adb  s-tposen.ali
+
+D ada.ads		20170517220732 76789da1 ada%s
+D a-interr.ads		20170517220734 bdf68b51 ada.interrupts%s
+D a-reatim.ads		20170517220734 bb781ad1 ada.real_time%s
+D a-taside.ads		20170517220734 c6417f71 ada.task_identification%s
+D a-unccon.ads		20170517220732 31484697 ada.unchecked_conversion%s
+D hal.ads		20180126143414 2b42c80e hal%s
+D interfac.ads		20170517220732 5ab55268 interfaces%s
+D i-stm32.ads		20170517220734 2ad0960b interfaces.stm32%s
+D i-stm32-pwr.ads	20170517220734 4a098e84 interfaces.stm32.pwr%s
+D i-stm32-rcc.ads	20170517220734 dc5180a7 interfaces.stm32.rcc%s
+D stm32.ads		20180126143410 698e2c3b stm32%s
+D stm32-dma.ads		20180126143410 a485c5f7 stm32.dma%s
+D stm32-dma-interrupts.ads  20180126143410 35afaa6f stm32.dma.interrupts%s
+D stm32-dma-interrupts.adb  20180126143410 9b5e091d stm32.dma.interrupts%b
+D stm32_svd.ads		20180126143412 89b9f11a stm32_svd%s
+D stm32_svd-dma.ads	20180126143412 cbdaf790 stm32_svd.dma%s
+D system.ads		20170517220734 66e59cc5 system%s
+D s-bb.ads		20170517220732 09e072ae system.bb%s
+D s-bbbopa.ads		20170517220734 5e9af419 system.bb.board_parameters%s
+D s-bbbosu.ads		20170517220734 9b59a61f system.bb.board_support%s
+D s-bbcppr.ads		20170517220734 bcfa73ad system.bb.cpu_primitives%s
+D s-bcprmu.ads		20170517220734 043d3736 system.bb.cpu_primitives.multiprocessors%s
+D s-bbinte.ads		20170517220734 d9fc23b0 system.bb.interrupts%s
+D s-bbmcpa.ads		20170517220734 b5961a30 system.bb.mcu_parameters%s
+D s-bbpara.ads		20170517220734 77379e7b system.bb.parameters%s
+D s-bbthre.ads		20170517220734 d6c36e4f system.bb.threads%s
+D s-bbthqu.ads		20170517220734 db3cad46 system.bb.threads.queues%s
+D s-bbtime.ads		20170517220734 ad086247 system.bb.time%s
+D s-interr.ads		20170517220734 36300b98 system.interrupts%s
+D s-multip.ads		20170517220734 f33e0e35 system.multiprocessors%s
+D s-mufalo.ads		20170517220734 3dca0374 system.multiprocessors.fair_locks%s
+D s-musplo.ads		20170517220734 69fa25c4 system.multiprocessors.spin_locks%s
+D s-osinte.ads		20170517220734 2d4f0621 system.os_interface%s
+D s-parame.ads		20170517220734 c9fe535f system.parameters%s
+D s-stm32.ads		20170517220734 e898dba2 system.stm32%s
+D s-stoele.ads		20170517220732 2dc34a04 system.storage_elements%s
+D s-tasinf.ads		20170517220734 801abd01 system.task_info%s
+D s-taspri.ads		20170517220734 351848fa system.task_primitives%s
+D s-taskin.ads		20170517220734 2a4da085 system.tasking%s
+D s-taprob.ads		20170517220734 c8fc0753 system.tasking.protected_objects%s
+D s-tposen.ads		20170517220734 9e6a8286 system.tasking.protected_objects.single_entry%s
+D s-unstyp.ads		20170517220732 34867c83 system.unsigned_types%s
+X 1 ada.ads
+16K9*Ada 20e8 13|32r6 39r20
+X 2 a-interr.ads
+40K13*Interrupts 100e19 13|32w10 39r24
+42I9*Interrupt_ID<29|61I9> 13|39r35
+X 6 hal.ads
+66M9*UInt16<7|66M9> 13|44r47 14|42r47
+X 7 interfac.ads
+66M9*Unsigned_16
+X 11 stm32.ads
+39K9*STM32 48e10 13|34r9 66r5 14|32r14 139r5
+X 12 stm32-dma.ads
+89K15*DMA 11|39k9 12|627e14 13|34r15 66r11 14|32r20 139r11
+91R9*DMA_Controller<16|1386R9> 13|37r36
+96E9*DMA_Stream_Selector 104e16 13|38r20
+121V13*Enabled{boolean} 14|112s29 119s29
+223U14*Start_Transfer_with_Interrupts 14|50s10
+224r7 This{91R9} 14|50r42
+225e7 Stream{96E9} 14|51r42
+226m7 Source{17|95M9} 14|52r42
+227m7 Destination{17|95M9} 14|53r42
+228m7 Data_Count{6|66M9} 14|54r42
+246E9*DMA_Error_Code 252e24 13|46r46 52r47 60r32 14|61r46 93r47
+247n7*DMA_No_Error{246E9} 13|60r50 14|66r45 130r37
+248n7*DMA_Transfer_Error{246E9} 14|77r25 125r37
+249n7*DMA_FIFO_Error{246E9} 14|110r37
+250n7*DMA_Direct_Mode_Error{246E9} 14|118r37
+254U14*Abort_Transfer 14|63s10
+255r7 This{91R9} 14|63r26
+256e7 Stream{96E9} 14|64r26
+257e7 Result{246E9} 14|65r26
+333E9*DMA_Status_Flag 338e35 14|106r22
+334n7*FIFO_Error_Indicated{333E9} 14|109r24
+335n7*Direct_Mode_Error_Indicated{333E9} 14|117r24
+336n7*Transfer_Error_Indicated{333E9} 14|124r24
+337n7*Half_Transfer_Complete_Indicated{333E9} 14|127r24
+338n7*Transfer_Complete_Indicated{333E9} 14|129r24
+340U14*Clear_Status 14|133s16
+348U14*Clear_All_Status 14|48s10
+355V13*Status{boolean} 14|107s16
+X 13 stm32-dma-interrupts.ads
+34K19*Interrupts 12|89k15 13|66l15 66e25 14|32b24 139l15 139t25
+36W19*DMA_Interrupt_Controller 37d7 38d7 39d7 56E17 62l8 62e32 64r55 14|34b19
+. 137l8 137t32
+38e7 Stream{12|96E9} 14|48r44 51r64 64r36 107r40 112r54 119r54 133r46
+39i7 ID{2|42I9} 57r49
+42U17 Start_Transfer 42>33 43>33 44>33 14|40b17 55l11 55t25
+42m33 Source{17|95M9} 14|40b33 52r64
+43m33 Destination{17|95M9} 14|41b33 53r64
+44m33 Data_Count{6|66M9} 14|42b33 54r64
+46U17 Abort_Transfer 46<33 14|61b17 67l11 67t25
+46e33 Result{12|246E9} 14|61b33 65m36 66r36
+48U17 Clear_Transfer_State 14|73b17 78l11 78t31
+50V16 Buffer_Error{boolean} 14|84b16 87l11 87t23
+52Y13 Wait_For_Completion 52<34 14|93b13 98l11 98t30
+52e34 Status{12|246E9} 14|97m10
+56U17 Interrupt_Handler 57r30 14|104b17 136l11 136t28
+59b7 No_Transfer_In_Progess{boolean} 14|45r10 66r10 76r10 94r14 115r25 122r25
+. 126r22 131r22
+60e7 Last_Status{12|246E9} 14|77r10 97r20 110r22 118r22 125r22 130r22
+61b7 Had_Buffer_Error{boolean} 14|46r10 86r17 111r22
+64P9*DMA_Interrupt_Controller_Access(36W19)
+X 14 stm32-dma-interrupts.adb
+93e34 Status{12|246E9}
+106e14 Flag{12|333E9} 107r48 108r21 133r54
+X 17 system.ads
+95M9*Address 13|42r47 43r47 14|40r47 41r47
+X 22 s-bcprmu.ads
+39U14*Start_All_CPUs 40i<c,__gnat_start_slave_cpus>22
+X 29 s-interr.ads
+61I9*Ada_Interrupt_ID<integer>
+101U14*Install_Restricted_Handlers_Sequential 102i<c,__gnat_attach_all_handlers>22
+X 39 s-taskin.ads
+361V13*Get_Sec_Stack{17|95M9} 362i<c,__gnat_get_secondary_stack>22
+
