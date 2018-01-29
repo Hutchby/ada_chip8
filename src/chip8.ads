@@ -19,7 +19,7 @@ package Chip8 is
          Opcode : Short;
          CMemory : Memory;
          V : RegisterArray;
-         I : Short;
+         I : Address;
          PC : Address;
          Screen : FrameBuffer;
          Delay_Timer : Char;
@@ -45,7 +45,6 @@ package Chip8 is
    procedure XorVV (cpu : in out Chip8; instr : in InstructionBytes);
    procedure AddVV (cpu : in out Chip8; instr : in InstructionBytes);
    procedure SubVV (cpu : in out Chip8; instr : in InstructionBytes);
-   procedure ShrV (cpu : in out Chip8; instr : in InstructionBytes);
    procedure Shr (cpu : in out Chip8; instr : in InstructionBytes);
    procedure SubN (cpu : in out Chip8; instr : in InstructionBytes);
    procedure Shl (cpu : in out Chip8; instr : in InstructionBytes);

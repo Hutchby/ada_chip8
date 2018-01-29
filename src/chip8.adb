@@ -148,7 +148,8 @@ package body Chip8 is
       AddToPc (cpu, InstructionLength);
    end AddVV;
 
-   procedure SubVV (cpu : in out Chip8; instr : in InstructionBytes)   is
+   procedure SubVV (cpu : in out Chip8; instr : in InstructionBytes)
+   is
       Index : Integer := Integer (instr (0) and 16#0f#);
       Index2 : Integer := Integer (instr (1) and 16#f0#) / 16;
       Positive : Boolean := Integer (cpu.V (Index)) > Integer (cpu.V (Index2));
@@ -161,5 +162,77 @@ package body Chip8 is
       cpu.V (Index) := cpu.V (Index) - cpu.V (Index2);
       AddToPc (cpu, InstructionLength);
    end SubVV;
+
+   procedure Shr (cpu : in out Chip8; instr : in InstructionBytes)
+   is
+      Index : Integer := Integer (instr (0) and 16#0f#);
+      Index2 : Integer := Integer (instr (1) and 16#f0#) / 16;
+      odd : Boolean := cpu.V (Index) mod 2 = 1;
+   begin
+      if odd then
+         cpu.V (15) := 1;
+      else
+         cpu.V (15) := 0;
+      end if;
+      cpu.V (Index) := cpu.V (Index / 2);
+      AddToPc (cpu, InstructionLength);
+   end Shr;
+
+   procedure SubN (cpu : in out Chip8; instr : in InstructionBytes)
+   is
+      Index : Integer := Integer (instr (0) and 16#0f#);
+      Index2 : Integer := Integer (instr (1) and 16#f0#) / 16;
+      Positive : Boolean := Integer (cpu.V (Index)) > Integer (cpu.V (Index2));
+   begin
+      if Positive then
+         cpu.V (15) := 0;
+      else
+         cpu.V (15) := 1;
+      end if;
+      cpu.V (Index) := cpu.V (Index2) - cpu.V (Index);
+      AddToPc (cpu, InstructionLength);
+   end SubN;
+
+   procedure Shl (cpu : in out Chip8; instr : in InstructionBytes)
+   is
+      Index : Integer := Integer (instr (0) and 16#0f#);
+      Index2 : Integer := Integer (instr (1) and 16#f0#) / 16;
+      big : Boolean := cpu.V (Index) > 127;
+   begin
+      if big then
+         cpu.V (15) := 1;
+      else
+         cpu.V (15) := 0;
+      end if;
+      cpu.V (Index) := cpu.V (Index * 2);
+      AddToPc (cpu, InstructionLength);
+   end Shl;
+
+   procedure SneV (cpu : in out Chip8; instr : in InstructionBytes)
+   is
+   begin
+      ConditionalJump (cpu, cpu.V (Integer (instr (0) and 16#0f#)) /=
+                         cpu.V (Integer (instr (1) and 16#f0#) / 16));
+   end SneV;
+
+   procedure LdI (cpu : in out Chip8; instr : in InstructionBytes)
+   is
+      Byte1 : Integer := Integer (instr (0) and 16#0f#);
+      Byte2 : Integer := Integer (instr (1) and 16#ff#);
+   begin
+      cpu.I := Address (Byte1) * 256 + Address (Byte2);
+      AddToPc (cpu, InstructionLength);
+   end LdI;
+
+   procedure JmpV (cpu : in out Chip8; instr : in InstructionBytes)
+   is
+      Byte1 : Integer := Integer (instr (0) and 16#0f#);
+      Byte2 : Integer := Integer (instr (1) and 16#ff#);
+      Addr : Address := Address (cpu.V (0));
+   begin
+      Addr := Addr + 256 * Address (Byte1) + Address (Byte2);
+      SetPc (cpu, Addr);
+   end JmpV;
+
 
 end Chip8;
