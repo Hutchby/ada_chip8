@@ -93,7 +93,6 @@ package body gui is
       Display.Update_Layer (1, Copy_Back => True);
    end setup_screen;
 
-
    procedure draw_sprite (screen_buff : in out FrameBuffer; height : Natural;
                           buff : in SpriteBuffer; coord : Point) is
       X : constant Integer := coord.X;
@@ -114,6 +113,10 @@ package body gui is
             pixel_draw ((I, J), screen_buff (I, J));
          end loop;
       end loop;
-
    end draw_screen;
+   procedure reset_screen (screen_buff : in out FrameBuffer) is
+   begin
+      screen_buff := (others => (others => False));
+   end reset_screen;
+
 end gui;
