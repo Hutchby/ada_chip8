@@ -1,0 +1,259 @@
+<tests_mapping mode="monolith">
+   <unit source_file="bitmapped_drawing.ads">
+      <test_unit target_file="bitmapped_drawing-test_data-tests.ads">
+         <setup file="bitmapped_drawing-test_data.adb" name="Set_Up" line="8"  column="4"/>
+         <teardown file="bitmapped_drawing-test_data.adb" name="Tear_Down" line="14"  column="4"/>
+         <tested name="Draw_Char" line="42" column="14">
+            <test file="bitmapped_drawing-test_data-tests.adb" line="39" column="1" name="Test_Draw_Char_0c8078" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Draw_String" line="50" column="14">
+            <test file="bitmapped_drawing-test_data-tests.adb" line="60" column="1" name="Test_Draw_String_81d32e" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Draw_String" line="58" column="14">
+            <test file="bitmapped_drawing-test_data-tests.adb" line="81" column="1" name="Test_Draw_String_6018f0" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Draw_String" line="68" column="14">
+            <test file="bitmapped_drawing-test_data-tests.adb" line="102" column="1" name="Test_Draw_String_5fccbe" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <dangling>
+         </dangling>
+      </test_unit>
+   </unit>
+   <unit source_file="bmp_fonts.ads">
+      <test_unit target_file="bmp_fonts-test_data-tests.ads">
+         <setup file="bmp_fonts-test_data.adb" name="Set_Up" line="8"  column="4"/>
+         <teardown file="bmp_fonts-test_data.adb" name="Tear_Down" line="14"  column="4"/>
+         <tested name="Data" line="48" column="13">
+            <test file="bmp_fonts-test_data-tests.adb" line="39" column="1" name="Test_Data_6ef200" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Mask" line="57" column="13">
+            <test file="bmp_fonts-test_data-tests.adb" line="60" column="1" name="Test_Mask_24b95a" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Char_Height" line="66" column="13">
+            <test file="bmp_fonts-test_data-tests.adb" line="81" column="1" name="Test_Char_Height_939ec9" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Char_Width" line="70" column="13">
+            <test file="bmp_fonts-test_data-tests.adb" line="102" column="1" name="Test_Char_Width_53e21f" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <dangling>
+         </dangling>
+      </test_unit>
+   </unit>
+   <unit source_file="hershey_fonts.ads">
+      <test_unit target_file="hershey_fonts-test_data-tests.ads">
+         <setup file="hershey_fonts-test_data.adb" name="Set_Up" line="8"  column="4"/>
+         <teardown file="hershey_fonts-test_data.adb" name="Tear_Down" line="14"  column="4"/>
+         <tested name="Read" line="45" column="13">
+            <test file="hershey_fonts-test_data-tests.adb" line="39" column="1" name="Test_Read_e17338" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Read" line="46" column="14">
+            <test file="hershey_fonts-test_data-tests.adb" line="60" column="1" name="Test_Read_c1cee2" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Strlen" line="49" column="13">
+            <test file="hershey_fonts-test_data-tests.adb" line="81" column="1" name="Test_Strlen_b6c998" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <dangling>
+         </dangling>
+      </test_unit>
+   </unit>
+   <unit source_file="lcd_std_out.ads">
+      <test_unit target_file="lcd_std_out-test_data-tests.ads">
+         <setup file="lcd_std_out-test_data.adb" name="Set_Up" line="8"  column="4"/>
+         <teardown file="lcd_std_out-test_data.adb" name="Tear_Down" line="14"  column="4"/>
+         <tested name="Set_Font" line="67" column="14">
+            <test file="lcd_std_out-test_data-tests.adb" line="39" column="1" name="Test_Set_Font_a173cd" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Set_Orientation" line="71" column="14">
+            <test file="lcd_std_out-test_data-tests.adb" line="60" column="1" name="Test_Set_Orientation_848550" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Clear_Screen" line="75" column="14">
+            <test file="lcd_std_out-test_data-tests.adb" line="81" column="1" name="Test_Clear_Screen_fea67a" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Put_Line" line="83" column="14">
+            <test file="lcd_std_out-test_data-tests.adb" line="102" column="1" name="Test_Put_Line_a61d17" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Put" line="87" column="14">
+            <test file="lcd_std_out-test_data-tests.adb" line="123" column="1" name="Test_Put_b0271a" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Put" line="90" column="14">
+            <test file="lcd_std_out-test_data-tests.adb" line="144" column="1" name="Test_Put_f5b796" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="New_Line" line="92" column="14">
+            <test file="lcd_std_out-test_data-tests.adb" line="165" column="1" name="Test_New_Line_a03cfd" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Put" line="107" column="14">
+            <test file="lcd_std_out-test_data-tests.adb" line="186" column="1" name="Test_Put_eca184" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Put" line="112" column="14">
+            <test file="lcd_std_out-test_data-tests.adb" line="207" column="1" name="Test_Put_ff9dad" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <dangling>
+         </dangling>
+      </test_unit>
+   </unit>
+   <unit source_file="screen_interface.ads">
+      <test_unit target_file="screen_interface-test_data-tests.ads">
+         <setup file="screen_interface-test_data.adb" name="Set_Up" line="8"  column="4"/>
+         <teardown file="screen_interface-test_data.adb" name="Tear_Down" line="14"  column="4"/>
+         <tested name="Current_Touch_State" line="40" column="13">
+            <test file="screen_interface-test_data-tests.adb" line="39" column="1" name="Test_Current_Touch_State_80711a" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <dangling>
+         </dangling>
+      </test_unit>
+   </unit>
+   <unit source_file="last_chance_handler.ads">
+      <test_unit target_file="last_chance_handler-test_data-tests.ads">
+         <setup file="last_chance_handler-test_data.adb" name="Set_Up" line="8"  column="4"/>
+         <teardown file="last_chance_handler-test_data.adb" name="Tear_Down" line="14"  column="4"/>
+         <tested name="Last_Chance_Handler" line="38" column="14">
+            <test file="last_chance_handler-test_data-tests.adb" line="39" column="1" name="Test_Last_Chance_Handler_421ea3" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <dangling>
+         </dangling>
+      </test_unit>
+   </unit>
+   <unit source_file="chip8.ads">
+      <test_unit target_file="chip8-test_data-tests.ads">
+         <setup file="chip8-test_data.adb" name="Set_Up" line="8"  column="4"/>
+         <teardown file="chip8-test_data.adb" name="Tear_Down" line="14"  column="4"/>
+         <tested name="Initialize" line="40" column="13">
+            <test file="chip8-test_data-tests.adb" line="39" column="1" name="Test_Initialize_8ce202" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="FetchOpcode" line="41" column="14">
+            <test file="chip8-test_data-tests.adb" line="60" column="1" name="Test_FetchOpcode_994135" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="EmulateCycle" line="42" column="14">
+            <test file="chip8-test_data-tests.adb" line="81" column="1" name="Test_EmulateCycle_788153" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Jp" line="44" column="14">
+            <test file="chip8-test_data-tests.adb" line="102" column="1" name="Test_Jp_1ac3cb" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Cls" line="45" column="14">
+            <test file="chip8-test_data-tests.adb" line="123" column="1" name="Test_Cls_1efc61" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Ret" line="46" column="14">
+            <test file="chip8-test_data-tests.adb" line="144" column="1" name="Test_Ret_a5fc94" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Call" line="47" column="14">
+            <test file="chip8-test_data-tests.adb" line="165" column="1" name="Test_Call_aac095" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="SeVB" line="48" column="14">
+            <test file="chip8-test_data-tests.adb" line="186" column="1" name="Test_SeVB_101888" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="SneVB" line="49" column="14">
+            <test file="chip8-test_data-tests.adb" line="207" column="1" name="Test_SneVB_99e8d5" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="SeVV" line="50" column="14">
+            <test file="chip8-test_data-tests.adb" line="228" column="1" name="Test_SeVV_13d2d3" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="LdVB" line="51" column="14">
+            <test file="chip8-test_data-tests.adb" line="249" column="1" name="Test_LdVB_453c04" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="AddVB" line="52" column="14">
+            <test file="chip8-test_data-tests.adb" line="270" column="1" name="Test_AddVB_d51fed" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="LdVV" line="53" column="14">
+            <test file="chip8-test_data-tests.adb" line="291" column="1" name="Test_LdVV_53aa27" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="OrVV" line="54" column="14">
+            <test file="chip8-test_data-tests.adb" line="312" column="1" name="Test_OrVV_f9f9ca" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="AndVV" line="55" column="14">
+            <test file="chip8-test_data-tests.adb" line="333" column="1" name="Test_AndVV_7f3983" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="XorVV" line="56" column="14">
+            <test file="chip8-test_data-tests.adb" line="354" column="1" name="Test_XorVV_3a303e" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="AddVV" line="57" column="14">
+            <test file="chip8-test_data-tests.adb" line="375" column="1" name="Test_AddVV_dea81c" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="SubVV" line="58" column="14">
+            <test file="chip8-test_data-tests.adb" line="396" column="1" name="Test_SubVV_417abe" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Shr" line="59" column="14">
+            <test file="chip8-test_data-tests.adb" line="417" column="1" name="Test_Shr_8593c5" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="SubN" line="60" column="14">
+            <test file="chip8-test_data-tests.adb" line="438" column="1" name="Test_SubN_2cf0cc" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Shl" line="61" column="14">
+            <test file="chip8-test_data-tests.adb" line="459" column="1" name="Test_Shl_d7daaf" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="SneV" line="62" column="14">
+            <test file="chip8-test_data-tests.adb" line="480" column="1" name="Test_SneV_73e449" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="LdI" line="63" column="14">
+            <test file="chip8-test_data-tests.adb" line="501" column="1" name="Test_LdI_066ac8" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="JmpV" line="64" column="14">
+            <test file="chip8-test_data-tests.adb" line="522" column="1" name="Test_JmpV_f874bb" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Rnd" line="65" column="14">
+            <test file="chip8-test_data-tests.adb" line="543" column="1" name="Test_Rnd_9b379c" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Drw" line="66" column="14">
+            <test file="chip8-test_data-tests.adb" line="564" column="1" name="Test_Drw_b47b3a" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Skp" line="67" column="14">
+            <test file="chip8-test_data-tests.adb" line="585" column="1" name="Test_Skp_529e2c" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="Sknp" line="68" column="14">
+            <test file="chip8-test_data-tests.adb" line="606" column="1" name="Test_Sknp_600e10" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="LdVT" line="69" column="14">
+            <test file="chip8-test_data-tests.adb" line="627" column="1" name="Test_LdVT_4f0df5" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="LdK" line="70" column="14">
+            <test file="chip8-test_data-tests.adb" line="648" column="1" name="Test_LdK_bd625b" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="LdTV" line="71" column="14">
+            <test file="chip8-test_data-tests.adb" line="669" column="1" name="Test_LdTV_05208e" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="LdSV" line="72" column="14">
+            <test file="chip8-test_data-tests.adb" line="690" column="1" name="Test_LdSV_438265" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="AddI" line="73" column="14">
+            <test file="chip8-test_data-tests.adb" line="711" column="1" name="Test_AddI_6793a9" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="LdFV" line="74" column="14">
+            <test file="chip8-test_data-tests.adb" line="732" column="1" name="Test_LdFV_b0045b" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="LdBV" line="75" column="14">
+            <test file="chip8-test_data-tests.adb" line="753" column="1" name="Test_LdBV_8c68b8" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="LdArrV" line="76" column="14">
+            <test file="chip8-test_data-tests.adb" line="774" column="1" name="Test_LdArrV_ddac27" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="LdVArr" line="77" column="14">
+            <test file="chip8-test_data-tests.adb" line="795" column="1" name="Test_LdVArr_074f30" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="SetPc" line="79" column="14">
+            <test file="chip8-test_data-tests.adb" line="816" column="1" name="Test_SetPc_c6ff2d" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="AddToPc" line="80" column="14">
+            <test file="chip8-test_data-tests.adb" line="837" column="1" name="Test_AddToPc_ce9d01" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="GetInstructionValue" line="81" column="13">
+            <test file="chip8-test_data-tests.adb" line="858" column="1" name="Test_GetInstructionValue_0dbab7" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <tested name="ConditionalJump" line="83" column="14">
+            <test file="chip8-test_data-tests.adb" line="879" column="1" name="Test_ConditionalJump_061d19" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <dangling>
+         </dangling>
+      </test_unit>
+   </unit>
+   <unit source_file="roms.ads">
+      <test_unit target_file="roms-test_data-tests.ads">
+         <setup file="roms-test_data.adb" name="Set_Up" line="8"  column="4"/>
+         <teardown file="roms-test_data.adb" name="Tear_Down" line="14"  column="4"/>
+         <tested name="pong" line="3" column="13">
+            <test file="roms-test_data-tests.adb" line="39" column="1" name="Test_pong_e6d9d6" timestamp="2018-01-30 17:29:50"/>
+         </tested>
+         <dangling>
+         </dangling>
+      </test_unit>
+   </unit>
+   <additional_tests/>
+</tests_mapping>

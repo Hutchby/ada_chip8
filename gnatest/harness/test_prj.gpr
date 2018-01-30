@@ -1,0 +1,23 @@
+with "aunit";
+with "gnattest_common.gpr";
+with "../../prj.gpr";
+project test_prj is
+
+for Source_Dirs use
+	("../../hal/examples/shared/common/../gnatest/tests",
+	"../../obj/../gnatest/tests",
+	"common");
+
+for Languages use Gnattest_Common'Languages & ("Ada");
+package Compiler renames Gnattest_Common.Compiler;
+
+package Ide is
+	for Gnat use "arm-eabi-gnat";
+	for Gnatlist use "arm-eabi-gnatls";
+	for Debugger_Command use "arm-eabi-gdb";
+	for Program_Host use "localhost:4242";
+	for Communication_Protocol use "remote";
+	for Connection_Tool use "st-util";
+end Ide;
+
+end test_prj;
