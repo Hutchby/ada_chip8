@@ -7,7 +7,7 @@ package Chip8 is
    type Memory is array (Address'Range) of Byte;
    type RegisterArray is array (0 .. 15) of Byte;
    type ReturnStack is array (0 .. 15) of Address;
-   type KeyMap is array (0 .. 15) of Byte;
+   type KeyMap is array (0 .. 15) of Boolean;
    type FrameBuffer is array (0 .. 63, 0 .. 31) of Boolean;
    InstructionLength : constant := 2;
 
