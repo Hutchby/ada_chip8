@@ -1,12 +1,28 @@
 package body Chip8 is
 
-   procedure Initialize (cpu : in out Chip8) is
+   function Initialize (cpu : in out Chip8) return InstructionArrayType is
+      InstructionArray : InstructionArrayType;
    begin
       cpu.Opcode := 0;
       cpu.PC := 0;
       cpu.I := 0;
       cpu.StackIdx := 0;
       cpu.DrawFlag := False;
+      for I in Address range 0 .. cpu.CMemory'Size loop
+         cpu.CMemory (I) := 0;
+      end loop;
+
+      InstructionArray := (Jp'Access, Cls'Access, Ret'Access, Call'Access,
+                           SeVB'Access, SneVB'Access, SeVV'Access, LdVB'Access,
+                           AddVB'Access, LdVV'Access, OrVV'Access, AndVV'Access,
+                           XorVV'Access, AddVV'Access, SubVV'Access, Shr'Access,
+                           SubN'Access, Shl'Access, SneV'Access, LdI'Access,
+                           JmpV'Access, Rnd'Access, Drw'Access, Skp'Access,
+                           Sknp'Access, LdVT'Access, LdK'Access, LdTV'Access,
+                           LdSV'Access, AddI'Access, LdFV'Access, LdBV'Access,
+                           LdArrV'Access, LdVArr'Access);
+
+      return InstructionArray;
    end Initialize;
 
    procedure FetchOpcode (cpu : in out Chip8) is

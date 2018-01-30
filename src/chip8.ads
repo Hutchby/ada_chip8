@@ -10,10 +10,11 @@ package Chip8 is
    type KeyMap is array (0 .. 15) of Char;
    type FrameBuffer is array (0 .. 63, 0 .. 31) of Boolean;
    InstructionLength : constant := 2;
+
    --  Chip8 memory map:
    --  0x000-0x1FF - Chip8 interpreter, we will use it to store font set
    --  0x050-0x0A0 - Used to store the built-in 4x5 font set
-   --  0x050-0x0A0 - Program and work memory storage
+   --  0x200-0xFFF - Program and work memory storage
    type Chip8 is
       record
          Opcode : Short;
@@ -30,7 +31,13 @@ package Chip8 is
          DrawFlag : Boolean;
       end record;
 
-   procedure Initialize (cpu : in out Chip8);
+   -- This type needs to be placed after the declaration of the Chip8 type to
+   -- avoid confusion with the package name
+   type InstructionProcAccess is access procedure (chip : in out Chip8;
+                                                   instr : in InstructionBytes);
+   type InstructionArrayType is array (0 .. 33) of InstructionProcAccess;
+
+   function Initialize (cpu : in out Chip8) return InstructionArrayType;
    procedure FetchOpcode (cpu : in out Chip8);
    procedure EmulateCycle (cpu : in out Chip8);
 
