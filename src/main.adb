@@ -56,7 +56,6 @@ is
    pragma Unreferenced (n);
 begin
    setup_screen;
-
    loop
       if User_Button.Has_Been_Pressed then
          BG := HAL.Bitmap.Dark_Orange;

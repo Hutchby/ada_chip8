@@ -14,7 +14,6 @@ package body gui is
       else
          Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.Black);
       end if;
-
       Display.Hidden_Buffer (1).Draw_Rect (r);
    end pixel_draw;
 
