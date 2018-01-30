@@ -22,12 +22,12 @@ package Chip8 is
          I : Address;
          PC : Address;
          Screen : FrameBuffer;
-         Delay_Timer : Char;
-         Sound_Timer : Char;
+         DelayTimer : Char;
+         SoundTimer : Char;
          Stack : ReturnStack;
          StackIdx : Integer range 0 .. 16;
-         SP : Short;
          Key : KeyMap;
+         DrawFlag : Boolean;
       end record;
 
    procedure Jp (cpu : in out Chip8; instr : in InstructionBytes);

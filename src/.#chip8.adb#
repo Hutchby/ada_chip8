@@ -1,0 +1,26 @@
+package body Chip8 is
+
+   procedure Initialize (Chip : in out Chip8) is
+   begin
+      Chip.PC := 0x200;
+      Chip.Opcode := 0;
+      Chip.I := 0;
+      Chip.SP := 0;
+   end Initialize;
+
+   procedure Fetch_Opcode (Chip : in out Chip8) is
+   begin
+      Chip.Opcode := Chip.ChipMemory[Chip.PC] * (2**8) or Chip.ChipMemory[Chip.PC + 1];
+   end Fetch_Opcode;
+
+   procedure Decode_Opcode (Chip : in out Chip8) is
+   begin
+      case Chip.Opcode and 0xF000 is
+      when 0xA000 =>
+         Chip.I := Chip.Opcode and 0x0FFF;
+      when
+
+      end case;
+   end Decode_Opcode;
+
+end Chip8;
