@@ -7,7 +7,7 @@ with BMP_Fonts; use BMP_Fonts;
 package body gui is
 
    procedure pixel_draw (coord : Point; b : Boolean) is
-      r : constant Rect := (coord, 5, 5);
+      r : constant Rect := ((coord.X * 5, coord.Y * 5), 5, 5);
    begin
       if b then
          Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.White);
@@ -92,4 +92,28 @@ package body gui is
       LCD_Std_Out.Clear_Screen;
       Display.Update_Layer (1, Copy_Back => True);
    end setup_screen;
+
+
+   procedure draw_sprite (screen_buff : in out FrameBuffer; height : Natural;
+                          buff : in SpriteBuffer; coord : Point) is
+      X : constant Integer := coord.X;
+      Y : constant Integer := coord.Y;
+   begin
+      for I in 0 .. 8 loop
+         for J in 0 .. height loop
+            screen_buff (X + I, Y + J) := screen_buff (X + I, Y + J) xor buff (I, J);
+         end loop;
+      end loop;
+
+   end draw_sprite;
+
+   procedure draw_screen (screen_buff : in FrameBuffer) is
+   begin
+      for I in screen_buff'Range (1) loop
+         for J in screen_buff'Range (2) loop
+            pixel_draw ((I, J), screen_buff (I, J));
+         end loop;
+      end loop;
+
+   end draw_screen;
 end gui;
