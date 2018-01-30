@@ -93,7 +93,6 @@ package body gui is
       Display.Update_Layer (1, Copy_Back => True);
    end setup_screen;
 
-
    procedure draw_sprite (screen_buff : in out FrameBuffer; height : Natural;
                           buff : in SpriteBuffer; coord : Point) is
       X : constant Integer := coord.X;
