@@ -11,3 +11,9 @@ hal/obj/
 middleware/lib/
 middleware/obj/
 obj/
+hal/arch/ARM/STM32/lib/
+hal/arch/ARM/cortex_m/lib/
+hal/boards/stm32f429_discovery/lib/
+hal/components/lib/
+hal/hal/lib/
+hal/middleware/lib/

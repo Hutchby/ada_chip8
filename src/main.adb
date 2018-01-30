@@ -44,62 +44,35 @@ use BMP_Fonts;
 with LCD_Std_Out;
 with HAL.Framebuffer;
 
-with gui;
+with gui; use gui;
 
 procedure Main
 is
    BG : Bitmap_Color := (Alpha => 255, others => 0);
    Ball_Pos   : Point := (20, 280);
-   P1    : constant Point := (0, 0);
    coeff : constant Integer := 5;
-   Screen    : constant Rect := (P1, coeff * 32, coeff * 64);
-   R2    : Rect := (P1, 40, 40);
+   Screen    : constant Rect := ((0, 0), coeff * 32, coeff * 64);
    n     : Integer;
+   pragma Unreferenced (n);
 begin
-
-   --  Initialize LCD
-   Display.Initialize;
-   Display.Initialize_Layer (1, ARGB_8888);
-   --  LCD_Std_Out.Set_Orientation (HAL.Framebuffer.Landscape);
-
-   --  Initialize touch panel
-   Touch_Panel.Initialize;
-
-   --  Initialize button
-   User_Button.Initialize;
-
-   LCD_Std_Out.Set_Font (BMP_Fonts.Font8x8);
-   LCD_Std_Out.Current_Background_Color := BG;
-
-   --  Clear LCD (set background)
-   Display.Hidden_Buffer (1).Set_Source (BG);
-   Display.Hidden_Buffer (1).Fill;
-
-   LCD_Std_Out.Clear_Screen;
-   Display.Update_Layer (1, Copy_Back => True);
+   setup_screen;
 
    loop
       if User_Button.Has_Been_Pressed then
          BG := HAL.Bitmap.Dark_Orange;
       end if;
-      n = get_button (get_touch)
-      Display.Hidden_Buffer (1).Set_Source (BG);
+      Display.Hidden_Buffer (1).all.Set_Source (BG);
       Display.Hidden_Buffer (1).Fill;
 
       Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.Blue);
 
       Display.Hidden_Buffer (1).Fill_Rect (Screen);
-      for I in 0 .. 7 loop
-         R2.Position.Y := I * 40;
-
-         R2.Position.X := 160;
-         Display.Hidden_Buffer (1).Draw_Rect (R2);
-         R2.Position.X := 200;
-         Display.Hidden_Buffer (1).Draw_Rect (R2);
-      end loop;
-      --  Bitmapped_Drawing.Draw_String (Display.Hidden_Buffer (1), P1, "TEST.", BMP_Font, HAL.Bitmap.Blue, BG);
-
-      LCD_Std_Out.Put (0, 0, "Test.");
+      --  d_Drawing.Draw_String (Display.Hidden_Buffer (1), P1, "TEST.", BMP_Font, HAL.Bitmap.Blue, BG);
+      draw_button;
+      LCD_Std_Out.Put (160, 0, "Test.");
+      n := get_button (get_touch);
+      LCD_Std_Out.Put (160, 10, Integer'Image (n));
+      --  LCD_Std_Out.Put (160, 20, Integer'Image (get_touch.Y));
       --  Update screen
       Display.Update_Layer (1, Copy_Back => True);
 
