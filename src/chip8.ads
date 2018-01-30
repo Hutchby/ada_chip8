@@ -1,13 +1,13 @@
 package Chip8 is
    type Short is mod 2**16;
    type Address is mod 2**12;
-   type Char is mod 2**8;
-   type InstructionBytes is array (0 .. 1) of Char;
+   type Byte is mod 2**8;
+   type InstructionBytes is array (0 .. 1) of Byte;
    type Instruction is mod 2**16;
-   type Memory is array (Address'Range) of Char;
-   type RegisterArray is array (0 .. 15) of Char;
+   type Memory is array (Address'Range) of Byte;
+   type RegisterArray is array (0 .. 15) of Byte;
    type ReturnStack is array (0 .. 15) of Address;
-   type KeyMap is array (0 .. 15) of Char;
+   type KeyMap is array (0 .. 15) of Byte;
    type FrameBuffer is array (0 .. 63, 0 .. 31) of Boolean;
    InstructionLength : constant := 2;
 
@@ -23,16 +23,17 @@ package Chip8 is
          I : Address;
          PC : Address;
          Screen : FrameBuffer;
-         DelayTimer : Char;
-         SoundTimer : Char;
+         DelayTimer : Byte;
+         SoundTimer : Byte;
          Stack : ReturnStack;
          StackIdx : Integer range 0 .. 16;
          Key : KeyMap;
          DrawFlag : Boolean;
       end record;
 
-   -- This type needs to be placed after the declaration of the Chip8 type to
-   -- avoid confusion with the package name
+   --  This type needs to be placed after the declaration of the Chip8 type to
+   --  avoid confusion with the package name
+
    type InstructionProcAccess is access procedure (chip : in out Chip8;
                                                    instr : in InstructionBytes);
    type InstructionArrayType is array (0 .. 33) of InstructionProcAccess;

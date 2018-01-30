@@ -1,8 +1,8 @@
-package body roms is
-   function pong return rom is
-      rom_pong : rom (1 .. 116);
+package body Roms is
+   function Pong return RomType is
+      RomPong : RomType (1 .. 116);
    begin
-      rom_pong := (
+      RomPong := (
          16#006e#, 16#d422#, 16#0366#, 16#0268#, 16#6060#, 16#15f0#, 16#07f0#,
          16#0030#, 16#1a12#, 16#17c7#, 16#0877#, 16#ff69#, 16#f0a2#, 16#71d6#,
          16#eaa2#, 16#b6da#, 16#d6dc#, 16#0160#, 16#a1e0#, 16#fe7b#, 16#0460#,
@@ -21,6 +21,6 @@ package body roms is
          16#55d4#, 16#1574#, 16#29f2#, 16#55d4#, 16#ee00#, 16#8080#, 16#8080#,
          16#8080#, 16#0080#, 16#0000#, 16#0000#
          );
-      return rom_pong;
-   end pong;
-end roms;
+      return RomPong;
+   end Pong;
+end Roms;

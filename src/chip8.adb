@@ -1,14 +1,17 @@
+with Roms; use Roms;
+
 package body Chip8 is
 
    function Initialize (cpu : in out Chip8) return InstructionArrayType is
       InstructionArray : InstructionArrayType;
+      Rom : constant RomType := Pong;
    begin
       cpu.Opcode := 0;
-      cpu.PC := 0;
+      cpu.PC := 16#0200#;
       cpu.I := 0;
       cpu.StackIdx := 0;
       cpu.DrawFlag := False;
-      for I in Address range 0 .. cpu.CMemory'Size loop
+      for I in Address range 0 .. cpu.CMemory'Size - 1 loop
          cpu.CMemory (I) := 0;
       end loop;
 
@@ -21,6 +24,11 @@ package body Chip8 is
                            Sknp'Access, LdVT'Access, LdK'Access, LdTV'Access,
                            LdSV'Access, AddI'Access, LdFV'Access, LdBV'Access,
                            LdArrV'Access, LdVArr'Access);
+
+      for I in Address range 0 .. Rom'Size - 1 loop
+         cpu.CMemory (2 * I + Address (512)) := Byte (Rom (I) / (2 ** 8));
+         cpu.CMemory (2 * I + 1 + Address (512)) := Byte (Rom (I) and 16#ff#);
+      end loop;
 
       return InstructionArray;
    end Initialize;
@@ -38,6 +46,7 @@ package body Chip8 is
          if cpu.DrawFlag then
             null; -- Call the drawing procedure
          end if;
+         cpu.PC := cpu.PC + 2;
       end loop Emulate_Loop;
    end EmulateCycle;
 
