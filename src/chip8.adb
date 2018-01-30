@@ -11,7 +11,7 @@ package body Chip8 is
 
    procedure FetchOpcode (cpu : in out Chip8) is
    begin
-      cpu.Opcode := cpu.CMemory (cpu.PC) * (2**8) or cpu.CMemory (cpu.PC + 1);
+      cpu.Opcode := Short (cpu.CMemory (cpu.PC) * (2**8)) or Short (cpu.CMemory (cpu.PC + 1));
    end FetchOpcode;
 
    procedure EmulateCycle (cpu : in out Chip8) is

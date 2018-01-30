@@ -30,9 +30,9 @@ package Chip8 is
          DrawFlag : Boolean;
       end record;
 
-   procedure Initialize(cpu : in out Chip8);
-   procedure FetchOpcode(cpu : in out Chip8);
-   procedure EmulateCycle(cpu : in out Chip8);
+   procedure Initialize (cpu : in out Chip8);
+   procedure FetchOpcode (cpu : in out Chip8);
+   procedure EmulateCycle (cpu : in out Chip8);
 
    procedure Jp (cpu : in out Chip8; instr : in InstructionBytes);
    procedure Cls (cpu : in out Chip8; instr : in InstructionBytes);
