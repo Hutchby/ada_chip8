@@ -1,6 +1,6 @@
 package body Chip8 is
 
-   procedure Initialize (cpu: in out Chip8) is
+   procedure Initialize (cpu : in out Chip8) is
    begin
       cpu.Opcode := 0;
       cpu.PC := 0;
@@ -9,18 +9,19 @@ package body Chip8 is
       cpu.DrawFlag := False;
    end Initialize;
 
-   procedure Fetch_Opcode (cpu: in out Chip8) is
+   procedure FetchOpcode (cpu : in out Chip8) is
    begin
-      cpu.Opcode := cpu.CMemory(cpu.PC) * (2**8) or cpu.CMemory(cpu.PC + 1);
-   end Fetch_Opcode;
+      cpu.Opcode := cpu.CMemory (cpu.PC) * (2**8) or cpu.CMemory (cpu.PC + 1);
+   end FetchOpcode;
 
-   procedure EmulateCycle(cpu : in out Chip8) is
+   procedure EmulateCycle (cpu : in out Chip8) is
    begin
       Emulate_Loop :
       loop
-         Fetch_Opcode(cpu);
+         FetchOpcode (cpu);
          if cpu.DrawFlag then
             null; -- Call the drawing procedure
+         end if;
       end loop Emulate_Loop;
    end EmulateCycle;
 
