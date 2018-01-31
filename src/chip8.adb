@@ -1,6 +1,6 @@
 with Roms; use Roms;
 
-package body Chip8 is
+package body Chip8 with SPARK_Mode => On is
 
    function Initialize (cpu : in out Chip8) return InstructionArrayType is
       InstructionArray : InstructionArrayType;
@@ -49,7 +49,6 @@ package body Chip8 is
          cpu.PC := cpu.PC + 2;
       end loop Emulate_Loop;
    end EmulateCycle;
-package body Chip8 with SPARK_Mode => On is
 
    procedure SetPc (cpu : in out Chip8; addr : in Address)
    is
@@ -98,7 +97,6 @@ package body Chip8 with SPARK_Mode => On is
       end if;
       cpu.StackIdx := cpu.StackIdx - 1;
       SetPc (cpu, cpu.Stack (cpu.StackIdx));
-      AddToPc (cpu, InstructionLength);
    end Ret;
 
    procedure Call (cpu : in out Chip8; instr : in InstructionBytes)
@@ -107,7 +105,7 @@ package body Chip8 with SPARK_Mode => On is
       if cpu.StackIdx = 16 then
          return;
       end if;
-      cpu.Stack (cpu.StackIdx) := cpu.PC;
+      cpu.Stack (cpu.StackIdx) := cpu.PC + InstructionLength;
       cpu.StackIdx := cpu.StackIdx + 1;
       SetPc (cpu, Address (GetInstructionValue (instr) mod 16));
    end Call;
