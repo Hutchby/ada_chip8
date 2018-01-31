@@ -3,7 +3,6 @@
 
 --  begin read only
 with Chip8.Test_Data.Tests.Suite;
-with roms.Test_Data.Tests.Suite;
 
 package body Gnattest_Main_Suite is
 
@@ -13,7 +12,6 @@ package body Gnattest_Main_Suite is
    begin
 
       Result.Add_Test (Chip8.Test_Data.Tests.Suite.Suite);
-      Result.Add_Test (roms.Test_Data.Tests.Suite.Suite);
 
       return Result'Access;
 
