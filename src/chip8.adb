@@ -1,4 +1,5 @@
 with Roms; use Roms;
+with gui; use gui;
 
 package body Chip8 with SPARK_Mode => On is
 
@@ -444,6 +445,7 @@ package body Chip8 with SPARK_Mode => On is
       AddToPc (cpu, InstructionLength);
    end LdVArr;
 
+<<<<<<< 50b994fbfee190bcd5a5e1a76411558bc92285ea
    procedure Rnd (cpu : in out Chip8; instr : in InstructionBytes)
    is
    begin
@@ -451,4 +453,21 @@ package body Chip8 with SPARK_Mode => On is
       cpu.V (Integer (instr (0) mod 16)) := cpu.Rnd;
       AddToPc (cpu, InstructionLength);
    end Rnd;
+=======
+   procedure Cls (cpu : in out Chip8; instr : in InstructionBytes)
+   is
+      pragma Unreferenced (instr);
+   begin
+      reset_screen (cpu.Screen);
+   end Cls;
+
+   procedure Drw (cpu : in out Chip8; instr : in InstructionBytes)
+   is
+   begin
+      draw_sprite (cpu, Integer (instr (1) / 16),
+                   (Integer (instr (0) / 16), Integer (instr (1) mod 16)));
+   end Drw;
+
+
+>>>>>>> add instr cls and drw
 end Chip8;
