@@ -7,7 +7,7 @@ with BMP_Fonts; use BMP_Fonts;
 package body gui is
 
    procedure pixel_draw (coord : Point; b : Boolean) is
-      r : constant Rect := ((coord.X * 5, coord.Y * 5), 5, 5);
+      r : constant Rect := ((coord.Y * 5, coord.X * 5), 5, 5);
    begin
       if b then
          Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.White);
