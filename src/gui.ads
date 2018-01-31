@@ -2,7 +2,7 @@ with HAL.Bitmap; use HAL.Bitmap;
 with Chip8; use Chip8;
 
 package gui is
-   type SpriteBuffer is array (0 .. 7, 0 .. 15) of Boolean;
+   type SpriteBuffer is array (0 .. 15, 0 .. 7) of Boolean;
    procedure pixel_draw (coord : Point; b : Boolean);
    procedure pixel_clr (coord : Point);
    function get_touch return Point;

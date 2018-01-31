@@ -38,7 +38,7 @@ package body Chip8 with SPARK_Mode => On is
          cpu.CMemory (Address (I)) := 0;
       end loop;
 
-      for Offset in 0 .. 8 * 5 - 1 loop
+      for Offset in 0 .. 16 * 5 - 1 loop
          cpu.CMemory (Address (16#50# + Offset)) := font (Offset);
       end loop;
 
@@ -53,7 +53,7 @@ package body Chip8 with SPARK_Mode => On is
 
    procedure FetchOpcode (cpu : in out Chip8) is
    begin
-      cpu.Opcode := Short (cpu.CMemory (cpu.PC) * (2**8)) or Short (cpu.CMemory (cpu.PC + 1));
+      cpu.Opcode := Short (cpu.CMemory (cpu.PC)) * (2**8) or Short (cpu.CMemory (cpu.PC + 1));
    end FetchOpcode;
 
    procedure Execute0 (cpu : in out Chip8; instr : in InstructionBytes) is
@@ -507,8 +507,8 @@ package body Chip8 with SPARK_Mode => On is
    is
    begin
       cpu.DrawFlag := True;
-      draw_sprite (cpu, Integer (instr (1) / 16),
-                   (Integer (instr (0) / 16), Integer (instr (1) mod 16)));
+      draw_sprite (cpu, Integer (instr (1) mod 16),
+                   (Integer (instr (0) mod 16), Integer (instr (1) / 16)));
    end Drw;
 
 end Chip8;

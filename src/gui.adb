@@ -139,7 +139,7 @@ package body gui is
          b := cpu.CMemory (cpu.I + Address (Index));
          for J in 0 .. 7 loop
             if (b and 2**J) = 2**J then
-               ret (Index, J) := True;
+               ret (Index, 7 - J) := True;
             end if;
          end loop;
       end loop;

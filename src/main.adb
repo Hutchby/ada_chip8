@@ -45,11 +45,12 @@ with Chip8; use Chip8;
 
 procedure Main
 is
+   type CpuPtr is access Chip8.Chip8;
    Ball_Pos   : Point := (20, 280);
    n : Integer := 0;
-   cpu : Chip8.Chip8;
+   cpu : constant CpuPtr := new Chip8.Chip8;
 begin
    setup_screen;
-   Initialize (cpu);
-   EmulateCycle (cpu);
+   Initialize (cpu.all);
+   EmulateCycle (cpu.all);
 end Main;
