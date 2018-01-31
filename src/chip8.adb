@@ -445,14 +445,6 @@ package body Chip8 with SPARK_Mode => On is
       AddToPc (cpu, InstructionLength);
    end LdVArr;
 
-<<<<<<< 495db464b31447fac8598689db5640441f07539d
-<<<<<<< b91f63ee673f23981930fae7fa480e2dc2cdb3bd
-<<<<<<< 50b994fbfee190bcd5a5e1a76411558bc92285ea
-=======
-<<<<<<< d3e51490e14794409e32017ceeec8ef7dfcb44c9
->>>>>>> add instr cls and drw
-=======
->>>>>>> typo
    procedure Rnd (cpu : in out Chip8; instr : in InstructionBytes)
    is
    begin

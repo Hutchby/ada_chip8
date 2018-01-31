@@ -51,6 +51,7 @@ package body gui is
    procedure draw_button is
       R2    : Rect := ((0, 0), 40, 40);
    begin
+      Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.Dark_Orange);
       for I in 0 .. 7 loop
          R2.Position.Y := I * 40;
 
