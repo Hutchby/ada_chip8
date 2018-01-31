@@ -42,10 +42,12 @@ package body Chip8 with SPARK_Mode => On is
          cpu.CMemory (Address (16#50# + Offset)) := font (Offset);
       end loop;
 
-      for I in Address range Rom'First .. Rom'Last loop
-         cpu.CMemory (2 * I + Address (512)) := Byte (Rom (I) / (2 ** 8));
-         cpu.CMemory (2 * I + 1 + Address (512)) := Byte (Rom (I) and 16#ff#);
+      for I in Address range 0 .. Rom'Last - 1 loop
+         cpu.CMemory (2 * I + Address (512)) := Byte (Rom (I + 1) / (2 ** 8));
+         cpu.CMemory (2 * I + 1 + Address (512)) := Byte (Rom (I + 1) and 16#ff#);
       end loop;
+
+      cpu.Screen := (others => (others => False));
 
    end Initialize;
 
