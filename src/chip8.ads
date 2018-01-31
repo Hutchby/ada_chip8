@@ -10,6 +10,7 @@ package Chip8 with SPARK_Mode => On is
    type KeyMap is array (0 .. 15) of Boolean;
    type FrameBuffer is array (0 .. 63, 0 .. 31) of Boolean;
    type CountType is mod 17;
+   type FontBuffer is array (0 .. 16 * 5 - 1) of Byte;
    InstructionLength : constant := 2;
 
    --  Chip8 memory map:

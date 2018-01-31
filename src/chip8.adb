@@ -7,6 +7,22 @@ package body Chip8 with SPARK_Mode => On is
 
    procedure Initialize (cpu : in out Chip8) is
       Rom : constant RomType := Pong;
+      font : constant FontBuffer := (16#F0#, 16#90#, 16#90#, 16#90#, 16#F0#,
+                                     16#20#, 16#60#, 16#20#, 16#20#, 16#70#,
+                                     16#F0#, 16#10#, 16#F0#, 16#80#, 16#F0#,
+                                     16#F0#, 16#10#, 16#F0#, 16#10#, 16#F0#,
+                                     16#90#, 16#90#, 16#F0#, 16#10#, 16#10#,
+                                     16#F0#, 16#80#, 16#F0#, 16#10#, 16#F0#,
+                                     16#F0#, 16#80#, 16#F0#, 16#90#, 16#F0#,
+                                     16#F0#, 16#10#, 16#20#, 16#40#, 16#40#,
+                                     16#F0#, 16#90#, 16#F0#, 16#90#, 16#F0#,
+                                     16#F0#, 16#90#, 16#F0#, 16#10#, 16#F0#,
+                                     16#F0#, 16#90#, 16#F0#, 16#90#, 16#90#,
+                                     16#E0#, 16#90#, 16#E0#, 16#90#, 16#E0#,
+                                     16#F0#, 16#80#, 16#80#, 16#80#, 16#F0#,
+                                     16#E0#, 16#90#, 16#90#, 16#90#, 16#E0#,
+                                     16#F0#, 16#80#, 16#F0#, 16#80#, 16#F0#,
+                                     16#F0#, 16#80#, 16#F0#, 16#80#, 16#80#);
    begin
       cpu.Opcode := 0;
       --  The rom startx at 0x200.
@@ -15,6 +31,9 @@ package body Chip8 with SPARK_Mode => On is
       cpu.StackIdx := 0;
       cpu.DrawFlag := False;
       cpu.Rnd := 67;
+      for Offset in 0 .. 8 * 5 - 1 loop
+         cpu.CMemory (Address (16#50# + Offset)) := font (Offset);
+      end loop;
       for I in Address range 0 .. cpu.CMemory'Size - 1 loop
          cpu.CMemory (I) := 0;
       end loop;
@@ -163,7 +182,7 @@ package body Chip8 with SPARK_Mode => On is
    is
       dest : Address;
    begin
-      dest := Address (GetInstructionValue (instr) mod 16);
+      dest := Address (GetInstructionValue (instr) mod 16) + Address (cpu.V (0));
       SetPc (cpu, dest);
    end Jp;
 
