@@ -152,6 +152,8 @@ package body gui is
    begin
       i := get_button (get_touch);
       cpu.Key := (others => False);
-      cpu.Key := (i => True);
+      if i /= -1 then
+         cpu.Key (i) := True;
+      end if;
    end RegisterTouch;
 end gui;
