@@ -1,5 +1,7 @@
 with Roms; use Roms;
 with gui; use gui;
+with Ada; with Ada.Real_Time;
+use Ada.Real_Time;
 
 package body Chip8 with SPARK_Mode => On is
 
@@ -106,6 +108,9 @@ package body Chip8 with SPARK_Mode => On is
    end ExecuteOpcode;
 
    procedure EmulateCycle (cpu : in out Chip8) is
+      Epoch : Ada.Real_Time.Time;
+      Period : constant Ada.Real_Time.Time_Span := Ada.Real_Time.Milliseconds (1);
+      Count : CountType := 0;
    begin
       Emulate_Loop :
       loop
@@ -114,6 +119,13 @@ package body Chip8 with SPARK_Mode => On is
          if cpu.DrawFlag then
             null; -- Call the drawing procedure
          end if;
+         Epoch := Ada.Real_Time.Clock;
+         delay until Epoch;
+         if Count = 0 then
+            cpu.DelayTimer := cpu.DelayTimer - 1;
+         end if;
+         Count := Count + 1;
+         Epoch := Epoch + Period;
       end loop Emulate_Loop;
    end EmulateCycle;
 
