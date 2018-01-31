@@ -30,22 +30,52 @@ package body Chip8 with SPARK_Mode => On is
 
    procedure Execute0 (cpu : in out Chip8; instr : in InstructionBytes) is
    begin
-      null;
+      case cpu.Opcode is
+         when 16#00e0# => Cls (cpu, instr);
+         when 16#00ee# => Ret (cpu, instr);
+         when others => null;
+      end case;
    end Execute0;
 
    procedure Execute8 (cpu : in out Chip8; instr : in InstructionBytes) is
    begin
-      null;
+      case cpu.Opcode and 16#000f# is
+         when 16#0000# => LdVB (cpu, instr);
+         when 16#0001# => OrVV (cpu, instr);
+         when 16#0002# => AndVV (cpu, instr);
+         when 16#0003# => XorVV (cpu, instr);
+         when 16#0004# => AddVV (cpu, instr);
+         when 16#0005# => SubVV (cpu, instr);
+         when 16#0006# => Shr (cpu, instr);
+         when 16#0007# => SubN (cpu, instr);
+         when 16#000e# => Shl (cpu, instr);
+         when others => null;
+      end case;
    end Execute8;
 
    procedure ExecuteE (cpu : in out Chip8; instr : in InstructionBytes) is
    begin
-      null;
+      case cpu.Opcode and 16#00ff# is
+         when 16#009E# => Skp (cpu, instr);
+         when 16#00a1# => Sknp (cpu, instr);
+         when others => null;
+      end case;
    end ExecuteE;
 
    procedure ExecuteF (cpu : in out Chip8; instr : in InstructionBytes) is
    begin
-      null;
+      case cpu.Opcode and 16#00ff# is
+         when 16#0007# => LdVT (cpu, instr);
+         when 16#000a# => LdK (cpu, instr);
+         when 16#0015# => LdTV (cpu, instr);
+         when 16#0018# => LdSV (cpu, instr);
+         when 16#001e# => AddI (cpu, instr);
+         when 16#0029# => LdFV (cpu, instr);
+         when 16#0033# => LdBV (cpu, instr);
+         when 16#0055# => LdArrV (cpu, instr);
+         when 16#0065# => LdVArr (cpu, instr);
+         when others => null;
+      end case;
    end ExecuteF;
 
    procedure ExecuteOpcode (cpu : in out Chip8) is
