@@ -2,8 +2,7 @@ with Roms; use Roms;
 
 package body Chip8 with SPARK_Mode => On is
 
-   function Initialize (cpu : in out Chip8) return InstructionArrayType is
-      InstructionArray : InstructionArrayType;
+   procedure Initialize (cpu : in out Chip8) is
       Rom : constant RomType := Pong;
    begin
       cpu.Opcode := 0;
@@ -17,22 +16,11 @@ package body Chip8 with SPARK_Mode => On is
          cpu.CMemory (I) := 0;
       end loop;
 
-      InstructionArray := (Jp'Access, Cls'Access, Ret'Access, Call'Access,
-                           SeVB'Access, SneVB'Access, SeVV'Access, LdVB'Access,
-                           AddVB'Access, LdVV'Access, OrVV'Access, AndVV'Access,
-                           XorVV'Access, AddVV'Access, SubVV'Access, Shr'Access,
-                           SubN'Access, Shl'Access, SneV'Access, LdI'Access,
-                           JmpV'Access, Rnd'Access, Drw'Access, Skp'Access,
-                           Sknp'Access, LdVT'Access, LdK'Access, LdTV'Access,
-                           LdSV'Access, AddI'Access, LdFV'Access, LdBV'Access,
-                           LdArrV'Access, LdVArr'Access);
-
       for I in Address range 0 .. Rom'Size - 1 loop
          cpu.CMemory (2 * I + Address (512)) := Byte (Rom (I) / (2 ** 8));
          cpu.CMemory (2 * I + 1 + Address (512)) := Byte (Rom (I) and 16#ff#);
       end loop;
 
-      return InstructionArray;
    end Initialize;
 
    procedure FetchOpcode (cpu : in out Chip8) is
@@ -40,11 +28,58 @@ package body Chip8 with SPARK_Mode => On is
       cpu.Opcode := Short (cpu.CMemory (cpu.PC) * (2**8)) or Short (cpu.CMemory (cpu.PC + 1));
    end FetchOpcode;
 
+   procedure Execute0 (cpu : in out Chip8; instr : in InstructionBytes) is
+   begin
+      null;
+   end Execute0;
+
+   procedure Execute8 (cpu : in out Chip8; instr : in InstructionBytes) is
+   begin
+      null;
+   end Execute8;
+
+   procedure ExecuteE (cpu : in out Chip8; instr : in InstructionBytes) is
+   begin
+      null;
+   end ExecuteE;
+
+   procedure ExecuteF (cpu : in out Chip8; instr : in InstructionBytes) is
+   begin
+      null;
+   end ExecuteF;
+
+   procedure ExecuteOpcode (cpu : in out Chip8) is
+      instr : InstructionBytes;
+   begin
+      instr (0) := Byte (cpu.Opcode / (2 ** 8));
+      instr (1) := Byte (cpu.Opcode and 16#ff#);
+      case cpu.Opcode and 16#f000# is
+         when 16#0000# => Execute0 (cpu, instr);
+         when 16#1000# => Jp (cpu, instr);
+         when 16#2000# => Call (cpu, instr);
+         when 16#3000# => SeVB (cpu, instr);
+         when 16#4000# => SneVB (cpu, instr);
+         when 16#5000# => SeVV (cpu, instr);
+         when 16#6000# => LdVB (cpu, instr);
+         when 16#7000# => AddVB (cpu, instr);
+         when 16#8000# => Execute8 (cpu, instr);
+         when 16#9000# => SneV (cpu, instr);
+         when 16#a000# => LdI (cpu, instr);
+         when 16#b000# => JmpV (cpu, instr);
+         when 16#c000# => Rnd (cpu, instr);
+         when 16#d000# => Drw (cpu, instr);
+         when 16#e000# => ExecuteE (cpu, instr);
+         when others => ExecuteF (cpu, instr);
+      end case;
+
+   end ExecuteOpcode;
+
    procedure EmulateCycle (cpu : in out Chip8) is
    begin
       Emulate_Loop :
       loop
          FetchOpcode (cpu);
+         ExecuteOpcode (cpu);
          if cpu.DrawFlag then
             null; -- Call the drawing procedure
          end if;

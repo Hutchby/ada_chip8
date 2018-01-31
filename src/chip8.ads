@@ -35,12 +35,12 @@ package Chip8 with SPARK_Mode => On is
    --  This type needs to be placed after the declaration of the Chip8 type to
    --  avoid confusion with the package name
 
-   type InstructionProcAccess is access procedure (chip : in out Chip8;
-                                                   instr : in InstructionBytes);
-   type InstructionArrayType is array (0 .. 33) of InstructionProcAccess;
-
-   function Initialize (cpu : in out Chip8) return InstructionArrayType;
+   procedure Initialize (cpu : in out Chip8);
    procedure FetchOpcode (cpu : in out Chip8);
+   procedure Execute0 (cpu : in out Chip8; instr : in InstructionBytes);
+   procedure Execute8 (cpu : in out Chip8; instr : in InstructionBytes);
+   procedure ExecuteE (cpu : in out Chip8; instr : in InstructionBytes);
+   procedure ExecuteF (cpu : in out Chip8; instr : in InstructionBytes);
    procedure EmulateCycle (cpu : in out Chip8);
 
    --  Jump to an arbitrary location.
