@@ -389,5 +389,6 @@ package body Chip8 with SPARK_Mode => On is
       cpu.Rnd := cpu.Rnd / 2 + 128 * Bit;
       Rnd := cpu.Rnd and instr (1);
       cpu.V (Integer (instr (0) mod 16)) := Rnd;
+      AddToPc (cpu, InstructionLength);
    end Rnd;
 end Chip8;
