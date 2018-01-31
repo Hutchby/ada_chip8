@@ -20,5 +20,5 @@ The architecture was implemented by Guillaume Doré, the instruction set was
 implemented by Gaël Gilet--Couraud, Lucien Ricimello implemented the graphical
 user interface and Maxime Gaudron did the tests and the rom loader.
 
-To build and use the project one just have to open the pgr file with gps (arm
-version) and flash the board.
+To build and use the project one just have to open the prj.gpr file with gps
+(arm version) and flash the board.
