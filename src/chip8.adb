@@ -445,6 +445,7 @@ package body Chip8 with SPARK_Mode => On is
       AddToPc (cpu, InstructionLength);
    end LdVArr;
 
+<<<<<<< HEAD
    procedure Rnd (cpu : in out Chip8; instr : in InstructionBytes)
    is
    begin
@@ -453,6 +454,8 @@ package body Chip8 with SPARK_Mode => On is
       AddToPc (cpu, InstructionLength);
    end Rnd;
 
+=======
+>>>>>>> e8d38ba1cfcdc1d86e0f1e812f1e3493b8df4c5f
    procedure Cls (cpu : in out Chip8; instr : in InstructionBytes)
    is
       pragma Unreferenced (instr);
@@ -467,4 +470,8 @@ package body Chip8 with SPARK_Mode => On is
                    (Integer (instr (0) / 16), Integer (instr (1) mod 16)));
    end Drw;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e8d38ba1cfcdc1d86e0f1e812f1e3493b8df4c5f
 end Chip8;
