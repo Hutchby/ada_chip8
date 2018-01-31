@@ -46,7 +46,6 @@ package body Chip8 with SPARK_Mode => On is
          if cpu.DrawFlag then
             null; -- Call the drawing procedure
          end if;
-         cpu.PC := cpu.PC + 2;
       end loop Emulate_Loop;
    end EmulateCycle;
 
