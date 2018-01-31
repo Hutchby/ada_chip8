@@ -15,3 +15,10 @@ include the rom into the source code.
 The four main parts of the project are the implementation of the architecture
 of the CHIP-8, the implementation of the instruction set, the graphical user
 interface and the tests and rom loader.
+
+The architecture was implemented by Guillaume Doré, the instruction set was
+implemented by Gaël Gilet--Couraud, Lucien Ricimello implemented the graphical
+user interface and Maxime Gaudron did the tests and the rom loader.
+
+To build and use the project one just have to open the pgr file with gps (arm
+version) and flash the board.
