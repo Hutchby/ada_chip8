@@ -41,32 +41,15 @@ with HAL.Touch_Panel;       use HAL.Touch_Panel;
 with STM32.User_Button;     use STM32;
 with BMP_Fonts;
 with LCD_Std_Out;
+with gui; use gui;
 
 procedure Main
 is
    BG : Bitmap_Color := (Alpha => 255, others => 0);
    Ball_Pos   : Point := (20, 280);
+   n : Integer := 0;
 begin
-
-   --  Initialize LCD
-   Display.Initialize;
-   Display.Initialize_Layer (1, ARGB_8888);
-
-   --  Initialize touch panel
-   Touch_Panel.Initialize;
-
-   --  Initialize button
-   User_Button.Initialize;
-
-   LCD_Std_Out.Set_Font (BMP_Fonts.Font8x8);
-   LCD_Std_Out.Current_Background_Color := BG;
-
-   --  Clear LCD (set background)
-   Display.Hidden_Buffer (1).Set_Source (BG);
-   Display.Hidden_Buffer (1).Fill;
-
-   LCD_Std_Out.Clear_Screen;
-   Display.Update_Layer (1, Copy_Back => True);
+   setup_screen;
 
    loop
       if User_Button.Has_Been_Pressed then
@@ -76,20 +59,10 @@ begin
       Display.Hidden_Buffer (1).Set_Source (BG);
       Display.Hidden_Buffer (1).Fill;
 
-      Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.Blue);
-      Display.Hidden_Buffer (1).Fill_Circle (Ball_Pos, 10);
-
-
-      declare
-         State : constant TP_State := Touch_Panel.Get_All_Touch_Points;
-      begin
-         case State'Length is
-            when 1 =>
-               Ball_Pos := (State (State'First).X, State (State'First).Y);
-            when others => null;
-         end case;
-      end;
-
+      draw_button;
+      n := get_button (get_touch);
+      LCD_Std_Out.Put (160, 0, "Test.");
+      LCD_Std_Out.Put (160, 10, Integer'Image (n));
       --  Update screen
       Display.Update_Layer (1, Copy_Back => True);
 
