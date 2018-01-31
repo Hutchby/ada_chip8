@@ -93,14 +93,23 @@ package body gui is
       Display.Update_Layer (1, Copy_Back => True);
    end setup_screen;
 
-   procedure draw_sprite (screen_buff : in out FrameBuffer; height : Natural;
-                          buff : in SpriteBuffer; coord : Point) is
+   procedure draw_sprite (cpu : in out Chip8.Chip8; height : Natural; coord : Point)
+   is
       X : constant Integer := coord.X;
       Y : constant Integer := coord.Y;
+      mX : Integer;
+      mY : Integer;
+      buff : constant SpriteBuffer := GetSprite (cpu, height);
    begin
+      cpu.V (15) := 0;
       for I in 0 .. 8 loop
          for J in 0 .. height loop
-            screen_buff (X + I, Y + J) := screen_buff (X + I, Y + J) xor buff (I, J);
+            mX := (X + I) mod 64;
+            mY := (Y + J) mod 32;
+            cpu.Screen (mX, mY) := cpu.Screen (mX, mY) xor buff (I, J);
+            if  cpu.Screen (mX, mY) = False and buff (I, J) then
+               cpu.V (15) := 1;
+            end if;
          end loop;
       end loop;
 
@@ -114,9 +123,26 @@ package body gui is
          end loop;
       end loop;
    end draw_screen;
+
    procedure reset_screen (screen_buff : in out FrameBuffer) is
    begin
       screen_buff := (others => (others => False));
    end reset_screen;
+
+   function GetSprite (cpu : in Chip8.Chip8; height : Natural) return SpriteBuffer
+   is
+      ret : SpriteBuffer := (others => (others => False));
+      b : Byte;
+   begin
+      for Index in 0 .. height loop
+         b := cpu.CMemory (cpu.I + Address (Index));
+         for J in 0 .. 7 loop
+            if (b and 2**J) = 2**J then
+               ret (Index, J) := True;
+            end if;
+         end loop;
+      end loop;
+      return ret;
+   end GetSprite;
 
 end gui;
