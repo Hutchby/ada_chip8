@@ -445,11 +445,14 @@ package body Chip8 with SPARK_Mode => On is
       AddToPc (cpu, InstructionLength);
    end LdVArr;
 
+<<<<<<< 495db464b31447fac8598689db5640441f07539d
 <<<<<<< b91f63ee673f23981930fae7fa480e2dc2cdb3bd
 <<<<<<< 50b994fbfee190bcd5a5e1a76411558bc92285ea
 =======
 <<<<<<< d3e51490e14794409e32017ceeec8ef7dfcb44c9
 >>>>>>> add instr cls and drw
+=======
+>>>>>>> typo
    procedure Rnd (cpu : in out Chip8; instr : in InstructionBytes)
    is
    begin
@@ -457,7 +460,7 @@ package body Chip8 with SPARK_Mode => On is
       cpu.V (Integer (instr (0) mod 16)) := cpu.Rnd;
       AddToPc (cpu, InstructionLength);
    end Rnd;
-=======
+
    procedure Cls (cpu : in out Chip8; instr : in InstructionBytes)
    is
       pragma Unreferenced (instr);
@@ -472,6 +475,4 @@ package body Chip8 with SPARK_Mode => On is
                    (Integer (instr (0) / 16), Integer (instr (1) mod 16)));
    end Drw;
 
-
->>>>>>> add instr cls and drw
 end Chip8;
