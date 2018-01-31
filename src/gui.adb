@@ -146,4 +146,12 @@ package body gui is
       return ret;
    end GetSprite;
 
+   procedure RegisterTouch (cpu : in out Chip8.Chip8)
+   is
+      i : Integer;
+   begin
+      i := get_button (get_touch);
+      cpu.Key := (others => False);
+      cpu.Key := (i => True);
+   end RegisterTouch;
 end gui;

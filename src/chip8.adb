@@ -2,6 +2,9 @@ with Roms; use Roms;
 with gui; use gui;
 with Ada; with Ada.Real_Time;
 use Ada.Real_Time;
+with STM32.Board; use STM32.Board;
+with HAL; use HAL;
+with HAL.Bitmap;
 
 package body Chip8 with SPARK_Mode => On is
 
@@ -29,7 +32,7 @@ package body Chip8 with SPARK_Mode => On is
       cpu.PC := 16#0200#;
       cpu.I := 0;
       cpu.StackIdx := 0;
-      cpu.DrawFlag := False;
+      cpu.DrawFlag := True;
       cpu.Rnd := 67;
       for Offset in 0 .. 8 * 5 - 1 loop
          cpu.CMemory (Address (16#50# + Offset)) := font (Offset);
@@ -135,9 +138,13 @@ package body Chip8 with SPARK_Mode => On is
       loop
          FetchOpcode (cpu);
          ExecuteOpcode (cpu);
-         if cpu.DrawFlag then
-            null; -- Call the drawing procedure
-         end if;
+         --  if cpu.DrawFlag then
+         Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.Black);
+         Display.Hidden_Buffer (1).Fill;
+         Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.White);
+         draw_button;
+         draw_screen (cpu.Screen);
+         --  end if;
          Epoch := Ada.Real_Time.Clock;
          delay until Epoch;
          if Count = 0 then
@@ -145,6 +152,8 @@ package body Chip8 with SPARK_Mode => On is
          end if;
          Count := Count + 1;
          Epoch := Epoch + Period;
+         RegisterTouch (cpu);
+         Display.Update_Layer (1, Copy_Back => True);
       end loop Emulate_Loop;
    end EmulateCycle;
 
@@ -494,6 +503,7 @@ package body Chip8 with SPARK_Mode => On is
    procedure Drw (cpu : in out Chip8; instr : in InstructionBytes)
    is
    begin
+      cpu.DrawFlag := True;
       draw_sprite (cpu, Integer (instr (1) / 16),
                    (Integer (instr (0) / 16), Integer (instr (1) mod 16)));
    end Drw;

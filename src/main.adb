@@ -34,7 +34,6 @@ with Last_Chance_Handler;  pragma Unreferenced (Last_Chance_Handler);
 --  an exception is propagated. We need it in the executable, therefore it
 --  must be somewhere in the closure of the context clauses.
 
-with STM32.Board;           use STM32.Board;
 with HAL.Bitmap;            use HAL.Bitmap;
 pragma Warnings (Off, "referenced");
 with HAL.Touch_Panel;       use HAL.Touch_Panel;
@@ -42,29 +41,15 @@ with STM32.User_Button;     use STM32;
 with BMP_Fonts;
 with LCD_Std_Out;
 with gui; use gui;
+with Chip8; use Chip8;
 
 procedure Main
 is
-   BG : Bitmap_Color := (Alpha => 255, others => 0);
    Ball_Pos   : Point := (20, 280);
    n : Integer := 0;
+   cpu : Chip8.Chip8;
 begin
    setup_screen;
-
-   loop
-      if User_Button.Has_Been_Pressed then
-         BG := HAL.Bitmap.Dark_Orange;
-      end if;
-
-      Display.Hidden_Buffer (1).Set_Source (BG);
-      Display.Hidden_Buffer (1).Fill;
-
-      draw_button;
-      n := get_button (get_touch);
-      LCD_Std_Out.Put (160, 0, "Test.");
-      LCD_Std_Out.Put (160, 10, Integer'Image (n));
-      --  Update screen
-      Display.Update_Layer (1, Copy_Back => True);
-
-   end loop;
+   Initialize (cpu);
+   EmulateCycle (cpu);
 end Main;

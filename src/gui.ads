@@ -14,4 +14,5 @@ package gui is
    procedure draw_screen (screen_buff : in FrameBuffer);
    procedure reset_screen (screen_buff : in out FrameBuffer);
    function GetSprite (cpu : in Chip8.Chip8; height : Natural) return SpriteBuffer;
+   procedure RegisterTouch (cpu : in out Chip8.Chip8);
 end gui;
