@@ -1,0 +1,15 @@
+
+project Prj extends "hal/examples/shared/common/common.gpr" is
+
+   for Object_Dir use "obj";
+   for Create_Missing_Dirs use "True";
+
+   for Main use ("main.adb");
+   for Source_Dirs use ("src");
+
+   package Linker is
+      for Default_Switches ("ada") use
+        ("-gc-section", "-Wl,--print-memory-usage");
+   end Linker;
+
+end Prj;

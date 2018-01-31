@@ -1,8 +1,7 @@
 abstract project Gnattest_Common is
    for Languages use ("Ada");
    for Source_Files use ();
-   for Runtime ("Ada") use "ravenscar-sfp-stm32f429disco";
-   for Target use "arm-eabi";
+   for Target use "x86_64-linux-gnu";
 
    package Builder is
       for Global_Configuration_Pragmas use "suppress.adc";

@@ -1,6 +1,6 @@
 with "aunit";
 with "gnattest_common.gpr";
-with "../../prj.gpr";
+with "../../testprj.gpr";
 project test_prj is
 
 for Source_Dirs use
