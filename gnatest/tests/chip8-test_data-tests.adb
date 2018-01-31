@@ -26,6 +26,19 @@ package body Chip8.Test_Data.Tests is
 --
 --  end read only
 
+   cpu : Chip8 := (
+	   Opcode => 0,
+           CMemory => (others => 0), 
+	   V => (others => 0),
+	   I => 0,
+	   PC => 0,
+	   Screen => (others => (others => FALSE)), 
+	   DelayTimer => 0,
+	   SoundTimer => 0,
+	   Stack => (others => 0),
+	   StackIdx => 0,
+	   Key => (others => FALSE),
+	   DrawFlag => FALSE);
 --  begin read only
 --  end read only
 
@@ -37,13 +50,15 @@ package body Chip8.Test_Data.Tests is
    --  chip8.ads:40:4:Initialize
 --  end read only
 
+      Insts : InstructionArrayType;
       pragma Unreferenced (Gnattest_T);
 
    begin
+      Insts := Initialize(cpu);
 
       AUnit.Assertions.Assert
-        (Gnattest_Generated.Default_Assert_Value,
-         "Test not implemented.");
+        (cpu.PC = 16#0200#,
+         "test init");
 
 --  begin read only
    end Test_Initialize;

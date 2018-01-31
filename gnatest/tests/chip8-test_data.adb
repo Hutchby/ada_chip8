@@ -3,12 +3,15 @@
 --  automatically. Contents of this package can be modified in any way
 --  except for sections surrounded by a 'read only' marker.
 
+with chip8; use Chip8;
+
 package body Chip8.Test_Data is
+
 
    procedure Set_Up (Gnattest_T : in out Test) is
       pragma Unreferenced (Gnattest_T);
    begin
-      null;
+	   null;
    end Set_Up;
 
    procedure Tear_Down (Gnattest_T : in out Test) is
