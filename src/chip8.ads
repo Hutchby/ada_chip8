@@ -1,4 +1,4 @@
-package Chip8 is
+package Chip8 with SPARK_Mode => On is
    type Short is mod 2**16;
    type Address is mod 2**12;
    type Byte is mod 2**8;
@@ -77,10 +77,13 @@ package Chip8 is
    procedure LdArrV (cpu : in out Chip8; instr : in InstructionBytes);
    procedure LdVArr (cpu : in out Chip8; instr : in InstructionBytes);
 private
-   procedure SetPc (cpu : in out Chip8; addr : in Address);
-   procedure AddToPc (cpu : in out Chip8; offset : in Address);
+   procedure SetPc (cpu : in out Chip8; addr : in Address)
+     with Post => cpu.PC = addr;
+   procedure AddToPc (cpu : in out Chip8; offset : in Address)
+     with Post => cpu.PC = offset + cpu.PC'Old;
    function GetInstructionValue (bytes : in InstructionBytes)
-                                 return Instruction;
+                                 return Instruction
+     with Post => GetInstructionValue'Result = Instruction (bytes (1)) + Instruction (bytes (0)) * 256;
    procedure ConditionalJump (cpu : in out Chip8; condition : in Boolean);
 
 end Chip8;
