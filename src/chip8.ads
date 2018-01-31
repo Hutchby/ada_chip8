@@ -29,6 +29,7 @@ package Chip8 with SPARK_Mode => On is
          StackIdx : Integer range 0 .. 16;
          Key : KeyMap;
          DrawFlag : Boolean;
+         Rnd : Byte;
       end record;
 
    --  This type needs to be placed after the declaration of the Chip8 type to

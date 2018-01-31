@@ -7,10 +7,12 @@ package body Chip8 with SPARK_Mode => On is
       Rom : constant RomType := Pong;
    begin
       cpu.Opcode := 0;
+      --  The rom startx at 0x200.
       cpu.PC := 16#0200#;
       cpu.I := 0;
       cpu.StackIdx := 0;
       cpu.DrawFlag := False;
+      cpu.Rnd := 67;
       for I in Address range 0 .. cpu.CMemory'Size - 1 loop
          cpu.CMemory (I) := 0;
       end loop;
@@ -377,4 +379,15 @@ package body Chip8 with SPARK_Mode => On is
       AddToPc (cpu, InstructionLength);
    end LdVArr;
 
+   procedure Rnd (cpu : in out Chip8; instr : in InstructionBytes)
+   is
+      Bit : Byte;
+      Rnd : Byte;
+   begin
+      Bit := cpu.Rnd xor (cpu.Rnd / 4) xor (cpu.Rnd / 8) xor (cpu.Rnd / 32);
+      Bit := Bit and 1;
+      cpu.Rnd := cpu.Rnd / 2 + 128 * Bit;
+      Rnd := cpu.Rnd and instr (1);
+      cpu.V (Integer (instr (0) mod 16)) := Rnd;
+   end Rnd;
 end Chip8;
