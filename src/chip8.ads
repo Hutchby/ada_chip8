@@ -41,6 +41,7 @@ package Chip8 with SPARK_Mode => On is
    procedure Execute8 (cpu : in out Chip8; instr : in InstructionBytes);
    procedure ExecuteE (cpu : in out Chip8; instr : in InstructionBytes);
    procedure ExecuteF (cpu : in out Chip8; instr : in InstructionBytes);
+   procedure ExecuteOpcode (cpu : in out Chip8);
    procedure EmulateCycle (cpu : in out Chip8);
 
    --  Jump to an arbitrary location.
