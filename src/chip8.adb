@@ -509,6 +509,7 @@ package body Chip8 with SPARK_Mode => On is
       cpu.DrawFlag := True;
       draw_sprite (cpu, Integer (instr (1) mod 16),
                    (Integer (instr (0) mod 16), Integer (instr (1) / 16)));
+      AddToPc (cpu, InstructionLength);
    end Drw;
 
 end Chip8;
